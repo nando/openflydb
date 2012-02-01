@@ -1,0 +1,61 @@
+<h1>Listing pilots</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Passport</th>
+    <th>Birthdate</th>
+    <th>Nationality</th>
+    <th>Tshirt size</th>
+    <th>Club name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Zip code</th>
+    <th>Country</th>
+    <th>Phone</th>
+    <th>Mobile phone</th>
+    <th>Email</th>
+    <th>Glider class</th>
+    <th>Glider manuf</th>
+    <th>Glider model</th>
+    <th>Contact name</th>
+    <th>Contact relation</th>
+    <th>Contact phone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pilots.each do |pilot| %>
+  <tr>
+    <td><%= pilot.name %></td>
+    <td><%= pilot.surname %></td>
+    <td><%= pilot.passport %></td>
+    <td><%= pilot.birthdate %></td>
+    <td><%= pilot.nationality %></td>
+    <td><%= pilot.tshirt_size %></td>
+    <td><%= pilot.club_name %></td>
+    <td><%= pilot.address %></td>
+    <td><%= pilot.city %></td>
+    <td><%= pilot.zip_code %></td>
+    <td><%= pilot.country %></td>
+    <td><%= pilot.phone %></td>
+    <td><%= pilot.mobile_phone %></td>
+    <td><%= pilot.email %></td>
+    <td><%= pilot.glider_class %></td>
+    <td><%= pilot.glider_manuf %></td>
+    <td><%= pilot.glider_model %></td>
+    <td><%= pilot.contact_name %></td>
+    <td><%= pilot.contact_relation %></td>
+    <td><%= pilot.contact_phone %></td>
+    <td><%= link_to 'Show', pilot %></td>
+    <td><%= link_to('Edit', edit_pilot_path(pilot)) %></td>
+    <td><%= link_to('Destroy', pilot, :confirm => 'Are you sure?', :method => :delete) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pilot', new_pilot_path %>

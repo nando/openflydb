@@ -1,0 +1,108 @@
+<%= form_for(@pilot) do |f| %>
+  <% if @pilot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pilot.errors.count, "error") %> prohibited this pilot from being saved:</h2>
+
+      <ul>
+      <% @pilot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+  <h3>Datos personales</h3>
+  <div class="field">
+    <%= f.label 'Nombre' %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label 'Apellidos' %><br />
+    <%= f.text_field :surname %>
+  </div>
+  <div class="field">
+    <%= f.label 'DNI/Pasaporte' %><br />
+    <%= f.text_field :passport %>
+  </div>
+  <div class="field">
+    <%= f.label "Fecha de nacimiento" %><br />
+    <%= f.text_field :birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label "Nacionalidad" %><br />
+    <%= f.text_field :nationality %>
+  </div>
+  <div class="field">
+    <%= f.label "Talla de camiseta" %><br />
+    <%= f.text_field :tshirt_size %>
+  </div>
+  <div class="field">
+    <%= f.label "Club" %><br />
+    <%= f.text_field :club_name %>
+  </div>
+  </fieldset>
+  <fieldset>
+  <h3>Datos de contacto</h3>
+  <div class="field">
+    <%= f.label "Dirección" %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label "Ciudad" %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label "Código Postal" %><br />
+    <%= f.text_field :zip_code %>
+  </div>
+  <div class="field">
+    <%= f.label "País" %><br />
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label "Teléfono fijo" %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label "Teléfono móvil" %><br />
+    <%= f.text_field :mobile_phone %>
+  </div>
+  <div class="field">
+    <%= f.label "Correo electrónico" %><br />
+    <%= f.text_field :email %>
+  </div>
+  </fieldset>
+  <fieldset>
+  <h3>Tipo de Ala</h3>
+  <div class="field">
+    <%= f.label "Clase" %><br />
+    <%= f.text_field :glider_class %>
+  </div>
+  <div class="field">
+    <%= f.label "Fabricante" %><br />
+    <%= f.text_field :glider_manuf %>
+  </div>
+  <div class="field">
+    <%= f.label "Modelo" %><br />
+    <%= f.text_field :glider_model %>
+  </div>
+  </fieldset>
+  <fieldset>
+  <h3>Contacto de emergencia</h3>
+  <div class="field">
+    <%= f.label "Nombre completo" %><br />
+    <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label "Relación contigo" %><br />
+    <%= f.text_field :contact_relation %>
+  </div>
+  <div class="field">
+    <%= f.label "Teléfono" %><br />
+    <%= f.text_field :contact_phone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </fieldset>
+<% end %>
