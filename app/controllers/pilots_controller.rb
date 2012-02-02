@@ -41,15 +41,8 @@ class PilotsController < ApplicationController
   # POST /pilots.xml
   def create
     @pilot = Pilot.new(params[:pilot])
-
-    respond_to do |format|
-      referer_base = request.referer[/^.*\//]
-      if @pilot.save
-        redirect_to referer_base + 'ok.html'
-      else
-        redirect_to referer_base + 'ko.html'
-      end
-    end
+    referer_base = request.referer[/^.*\//]
+    redirect_to referer_base + (@pilot.save ? 'ok' : 'ko') + '.html'
   end
 
   # PUT /pilots/1
