@@ -1,13 +1,26 @@
 class PilotsController < ApplicationController
+  before_filter :require_admin, :except => [:create, :index]
   # GET /pilots
   # GET /pilots.xml
   def index
-    @pilots = Pilot.all
-
+    @pilots = Pilot.order(:name, :surname)
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @pilots }
+      format.html {
+        require_admin
+      }
+      format.json  {
+        pilots = @pilots.map{|p|
+          {
+            :name => p.name,
+            :surname => p.surname,
+            :glider => "#{p.glider_manuf} #{p.glider_model}",
+            :paid => p.paid?
+          }
+        }
+        render :json => pilots.to_json
+      }
     end
+
   end
 
   # GET /pilots/1
@@ -72,4 +85,18 @@ class PilotsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  private
+    def require_admin
+      set_admin_cookie if params[:admin]
+      redirect_to("/404.html") unless admin?
+    end
+
+    def set_admin_cookie
+      cookies[:admin] = Digest::SHA512.hexdigest("#{params[:admin]}")
+    end
+
+    def admin?
+      require 'digest/sha2'
+      "#{cookies[:admin]}" == "be937be440e14e7321f3faaff47e4643afd21e820c65fc2ea3f2d571fcee558e0da40eb43bdc5cbbb768a94979b4e4d2d72f9f30e5033b7347d0a1b7fba15e74"
+    end
 end

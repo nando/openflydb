@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131233707) do
+ActiveRecord::Schema.define(:version => 20120202090234) do
 
   create_table "pilots", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20120131233707) do
     t.string   "contact_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "paid"
   end
 
 end
