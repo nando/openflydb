@@ -17,7 +17,7 @@ class PilotsController < ApplicationController
             :paid => p.paid?
           }
         }
-        render :json => pilots.to_json
+        render :json => pilots.to_json, :callback => params[:callback]
       }
     end
 
