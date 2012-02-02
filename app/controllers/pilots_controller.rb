@@ -43,12 +43,11 @@ class PilotsController < ApplicationController
     @pilot = Pilot.new(params[:pilot])
 
     respond_to do |format|
+      referer_base = request.referer[/^.*\//]
       if @pilot.save
-        format.html { redirect_to(@pilot, :notice => 'Pilot was successfully created.') }
-        format.xml  { render :xml => @pilot, :status => :created, :location => @pilot }
+        redirect_to referer_base + 'ok.html'
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @pilot.errors, :status => :unprocessable_entity }
+        redirect_to referer_base + 'ko.html'
       end
     end
   end
