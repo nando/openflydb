@@ -11,21 +11,6 @@
 </p>
 
 <p>
-  <b>Passport:</b>
-  <%= @pilot.passport %>
-</p>
-
-<p>
-  <b>Birthdate:</b>
-  <%= @pilot.birthdate %>
-</p>
-
-<p>
-  <b>Nationality:</b>
-  <%= @pilot.nationality %>
-</p>
-
-<p>
   <b>Tshirt size:</b>
   <%= @pilot.tshirt_size %>
 </p>
@@ -46,23 +31,8 @@
 </p>
 
 <p>
-  <b>Zip code:</b>
-  <%= @pilot.zip_code %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @pilot.country %>
-</p>
-
-<p>
   <b>Phone:</b>
   <%= @pilot.phone %>
-</p>
-
-<p>
-  <b>Mobile phone:</b>
-  <%= @pilot.mobile_phone %>
 </p>
 
 <p>
@@ -95,6 +65,10 @@
   <%= @pilot.contact_relation %>
 </p>
 
+<p>
+  <b>Paid:</b>
+  <%= @pilot.paid? ? 'Yes' : 'No' %>
+</p>
 <p>
   <b>Contact phone:</b>
   <%= @pilot.contact_phone %>
