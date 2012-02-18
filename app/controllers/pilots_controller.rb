@@ -13,7 +13,7 @@ class PilotsController < ApplicationController
           {
             :name => p.name,
             :surname => p.surname,
-            :glider => "#{p.glider_manuf} #{p.glider_model}",
+            :glider => "#{p.glider_manuf.upcase} #{p.glider_model}",
             :paid => p.paid?
           }
         }
