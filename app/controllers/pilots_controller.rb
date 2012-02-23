@@ -15,7 +15,7 @@ class PilotsController < ApplicationController
             :surname => p.surname,
             :brand => p.glider_manuf.upcase,
             :model => p.glider_model,
-            :class => p.glider_class,
+            :glider_class => p.glider_class,
             :paid => p.paid?
           }
         }
