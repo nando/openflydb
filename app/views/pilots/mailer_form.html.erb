@@ -1,0 +1,9 @@
+<h1>Send custom email</h1>
+
+<%= form_tag send_mail_pilots_path do %>
+  <input type="text" name="subject"/><br/>
+  <textarea name="message" cols="80" rows="20"></textarea>
+  <input type="submit" value="send!"/>
+<% end %>
+
+<%= link_to 'Back', pilots_path %>

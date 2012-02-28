@@ -1,5 +1,16 @@
 class PilotsController < ApplicationController
   before_filter :require_admin, :except => [:create, :index]
+
+  def mailer_form
+  end
+
+  def send_mail
+    pilot = Pilot.find_by_surname('García Samblas')
+    PilotsMailer.custom_email(pilot, params[:subject], params[:message])
+    redirect_to :action => :mailer_form
+  end
+
+
   # GET /pilots
   # GET /pilots.xml
   def index
