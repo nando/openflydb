@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class PilotsController < ApplicationController
   before_filter :require_admin, :except => [:create, :index]
 
