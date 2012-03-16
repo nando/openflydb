@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Fs version="3.4" comment="Generated with OpenflyDB">
+  <FsCompetition id="0" name="OpenflyDB Comp" location="OpenflyDB loc" from="2012-04-28" to="2012-05-01" utc_offset="+2">
+    <FsParticipants>
+<% @pilots.each do |pilot| -%>
+      <FsParticipant id="<%= pilot.id %>"
+                     name="<%= "#{pilot.name} #{pilot.surname}" %>"
+                     glider="<%= "#{pilot.glider_manuf.upcase} #{pilot.glider_model}" %>"
+                     birthday=""
+                     glider_main_colors=""
+                     fai_licence=""
+                     female=""
+                     nat_code_3166_a3=""
+                     sponsor=""
+                     CIVLID="">
+        <FsCustomAttributes>
+          <FsCustomAttribute name="Club" value="<%= pilot.club_name %>" />
+          <FsCustomAttribute name="Tipo de Ala" value="<%= pilot.glider_type %>" />
+          <FsCustomAttribute name="Sport" value="<%= pilot.glider_class == 0 ? '1' : '0' %>" />
+          <FsCustomAttribute name="Fabricante" value="<%= pilot.glider_manuf.upcase %>" />
+          <FsCustomAttribute name="Pagado" value="<%= pilot.paid? ? '1' : '0' %>" />
+          <FsCustomAttribute name="Talla" value="<%= pilot.tshirt %>" />
+        </FsCustomAttributes>
+      </FsParticipant>
+<% end -%>
+    </FsParticipants>
+  </FsCompetition>
+</Fs>

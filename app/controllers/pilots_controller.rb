@@ -20,7 +20,7 @@ class PilotsController < ApplicationController
       format.html {
         require_admin
       }
-      format.json  {
+      format.json {
         pilots = @pilots.map{|p|
           {
             :name => p.name,
@@ -32,6 +32,9 @@ class PilotsController < ApplicationController
           }
         }
         render :json => pilots.to_json, :callback => params[:callback]
+      }
+      format.fsdb {
+        require_admin
       }
     end
 
