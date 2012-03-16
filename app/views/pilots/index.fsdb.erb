@@ -14,7 +14,7 @@
                      sponsor=""
                      CIVLID="">
         <FsCustomAttributes>
-          <FsCustomAttribute name="Club" value="<%= pilot.club_name %>" />
+          <FsCustomAttribute name="Club" value="<%= pilot.club_name.upcase %>" />
           <FsCustomAttribute name="Tipo de Ala" value="<%= pilot.glider_type %>" />
           <FsCustomAttribute name="Sport" value="<%= pilot.glider_class == 0 ? '1' : '0' %>" />
           <FsCustomAttribute name="Fabricante" value="<%= pilot.glider_manuf.upcase %>" />
