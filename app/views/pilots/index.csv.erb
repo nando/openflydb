@@ -1,10 +1,28 @@
 <% require 'csv' %>
 <%= 
   CSV.generate do |csv| 
-    @pilots.each do |pilot|
-      pilot.attributes.each do |attr|
-        csv << pilot.send(attr)
-      end
+    @pilots.each do |p|
+      #pilot.attributes.each do |attr|
+      #  csv << pilot.send(attr)
+      #end
+      csv << [
+        p.id,
+        p.name,
+        p.surname,
+        p.birthdate,
+        p.tshirt_size,
+        p.club_name,
+        p.address,
+        p.city,
+        p.phone,
+        p.email,
+        p.glider_class,
+        p.glider_manuf,
+        p.glider_model,
+        p.contact_name,
+        p.contact_relation,
+        p.contact_phone
+      ]
     end
   end
 %>
