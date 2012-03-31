@@ -1,0 +1,11 @@
+<% require 'csv' %>
+<%= 
+  CSV.generate do |csv| 
+    Pilot.find(:all).each do |p|
+      csv << [
+        p.id,
+        p.name
+      ]
+    end
+  end
+%>

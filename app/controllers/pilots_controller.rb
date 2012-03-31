@@ -36,6 +36,14 @@ class PilotsController < ApplicationController
       format.fsdb {
         require_admin
       }
+      format.csv {
+        require_admin
+        render :layout => false
+      }
+      format.xml {
+        require_admin
+        respond_with @pilots
+      }
     end
 
   end
