@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class PilotsController < ApplicationController
-  before_filter :require_admin, :except => [:create, :index]
+  before_filter :require_admin, :except => :create
 
   def mailer_form
   end
@@ -17,9 +17,7 @@ class PilotsController < ApplicationController
   def index
     @pilots = Pilot.order(:name, :surname)
     respond_to do |format|
-      format.html {
-        require_admin
-      }
+      format.html 
       format.json {
         pilots = @pilots.map{|p|
           {
@@ -33,15 +31,11 @@ class PilotsController < ApplicationController
         }
         render :json => pilots.to_json, :callback => params[:callback]
       }
-      format.fsdb {
-        require_admin
-      }
+      format.fsdb
       format.csv {
-        require_admin
         render :layout => false
       }
       format.xml {
-        require_admin
         respond_with @pilots
       }
     end
@@ -112,6 +106,7 @@ class PilotsController < ApplicationController
   end
   private
     def require_admin
+      return true if params[:action] == 'index' and params[:format] == 'json'
       set_admin_cookie if params[:admin]
       redirect_to("/404.html") unless admin?
     end

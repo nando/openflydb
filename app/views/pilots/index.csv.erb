@@ -1,11 +1,10 @@
 <% require 'csv' %>
 <%= 
   CSV.generate do |csv| 
-    Pilot.find(:all).each do |p|
-      csv << [
-        p.id,
-        p.name
-      ]
+    @pilots.each do |pilot|
+      pilot.attributes.each do |attr|
+        csv << pilot.send(attr)
+      end
     end
   end
 %>
