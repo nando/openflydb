@@ -1,6 +1,6 @@
 <% require 'csv' %>
 <%= 
-  CSV.generate(:quote_char => '"') do |csv| 
+  CSV.generate(:force_quotes =>true) do |csv| 
     @pilots.each do |p|
       #pilot.attributes.each do |attr|
       #  csv << pilot.send(attr)
