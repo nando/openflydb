@@ -1,4 +1,4 @@
-class CreatePilots < ActiveRecord::Migration
+class BloodGroup < ActiveRecord::Migration
   def self.up
     rename_column :pilots, :passport, :blood_type
     rename_column :pilots, :birthdate, :allergies
