@@ -1,6 +1,6 @@
 <% require 'csv' %>
 <%= 
-  CSV.generate(:force_quotes =>true) do |csv| 
+  raw(CSV.generate(:force_quotes =>true) do |csv| 
     @pilots.each do |p|
       #pilot.attributes.each do |attr|
       #  csv << pilot.send(attr)
@@ -23,5 +23,5 @@
         p.contact_phone
       ]
     end
-  end
+  end)
 %>
