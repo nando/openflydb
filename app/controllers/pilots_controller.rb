@@ -51,8 +51,10 @@ class PilotsController < ApplicationController
       format.html # show.html.erb
       format.xml { render :xml => @pilot }
       format.pdf {
-        render :pdf => "pilot_#{params[:id]}"
+        render :pdf => "pilot_#{params[:id]}",
+               :layout => 'layouts/application.html.erb',
       }
+                #:encoding => "utf-8"
     end
   end
 
