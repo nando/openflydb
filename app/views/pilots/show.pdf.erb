@@ -1,79 +1,93 @@
-<p id="notice"><%= notice %></p>
-
+<h1>I Open de Ala Delta de Pedro Bernardo</h1>
 <p>
-  <b>Name:</b>
+  <b>Nombre:</b>
   <%= @pilot.name %>
 </p>
 
 <p>
-  <b>Surname:</b>
+  <b>Apellidos:</b>
   <%= @pilot.surname %>
 </p>
 
 <p>
-  <b>Tshirt size:</b>
+  <b>Talla camiseta:</b>
   <%= @pilot.tshirt_size %>
 </p>
 
 <p>
-  <b>Club name:</b>
+  <b>Club:</b>
   <%= @pilot.club_name %>
 </p>
 
 <p>
-  <b>Address:</b>
+  <b>Dirección:</b>
   <%= @pilot.address %>
 </p>
 
 <p>
-  <b>City:</b>
+  <b>Ciudad:</b>
   <%= @pilot.city %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>Teléfono:</b>
   <%= @pilot.phone %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Correo electrónico:</b>
   <%= @pilot.email %>
 </p>
 
 <p>
-  <b>Glider class:</b>
+  <b>Tipo de ala:</b>
   <%= @pilot.glider_class %>
 </p>
 
 <p>
-  <b>Glider manuf:</b>
+  <b>Fabricante:</b>
   <%= @pilot.glider_manuf %>
 </p>
 
 <p>
-  <b>Glider model:</b>
+  <b>Modelo:</b>
   <%= @pilot.glider_model %>
 </p>
 
 <p>
-  <b>Contact name:</b>
+  <b>Contacto de emergencia (nombre):</b>
   <%= @pilot.contact_name %>
 </p>
 
 <p>
-  <b>Contact relation:</b>
+  <b>Relación:</b>
   <%= @pilot.contact_relation %>
 </p>
 
 <p>
-  <b>Paid:</b>
+  <b>Teléfono:</b>
+  <%= @pilot.contact_phone %>
+</p>
+<p>
+  <b>Grupo sanguíneo:</b>
+  <%= @pilot.blood_type %>
+</p>
+<p>
+  <b>Alergias conocidas:</b>
+  <%= @pilot.allergies %>
+</p>
+<p>
+  <b>Pagado:</b>
   <%= @pilot.paid? ? 'Yes' : 'No' %>
 </p>
 <p>
-  <b>Contact phone:</b>
-  <%= @pilot.contact_phone %>
-</p>
-
-
-<%= link_to 'Edit', edit_pilot_path(@pilot) %> |
-<%= link_to 'Back', pilots_path %>
+El abajo firmante, mediante el presente escrito, manifiesta expresamente lo siguiente:</p>
+<ol>
+<li>Que conoce, comprende, acata y cumple lo dispuesto en el Reglamento del I Open de Ala Delta de Pedro Bernardo, reconociéndose con capacidad y nivel técnico suficiente para abordar sin riesgos las dificultades de la competición.
+</li>
+<li>Que participa en esta competición asumiendo su responsabilidad y eximiendo de toda ella a las entidades y personas que organizan y colaboran en el desarrollo de la prueba.</li>
+</li>
+<li>Que no padezco enfermedad ni incapacidad física o psíquica alguna que me impidiera practicar el deporte de alta competición en ala delta sin riesgo alguno para mi salud.
+</li>
+</ol>
+<p>Firma:</p>
