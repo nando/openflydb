@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202090234) do
+ActiveRecord::Schema.define(:version => 20120401203201) do
 
   create_table "pilots", :force => true do |t|
     t.string   "name"
     t.string   "surname"
-    t.string   "passport"
-    t.string   "birthdate"
+    t.string   "blood_type"
+    t.string   "allergies"
     t.string   "nationality"
     t.integer  "tshirt_size"
     t.string   "club_name"

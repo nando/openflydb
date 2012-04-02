@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @pilot.name %>
+</p>
+
+<p>
+  <b>Surname:</b>
+  <%= @pilot.surname %>
+</p>
+
+<p>
+  <b>Tshirt size:</b>
+  <%= @pilot.tshirt_size %>
+</p>
+
+<p>
+  <b>Club name:</b>
+  <%= @pilot.club_name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @pilot.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @pilot.city %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @pilot.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @pilot.email %>
+</p>
+
+<p>
+  <b>Glider class:</b>
+  <%= @pilot.glider_class %>
+</p>
+
+<p>
+  <b>Glider manuf:</b>
+  <%= @pilot.glider_manuf %>
+</p>
+
+<p>
+  <b>Glider model:</b>
+  <%= @pilot.glider_model %>
+</p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @pilot.contact_name %>
+</p>
+
+<p>
+  <b>Contact relation:</b>
+  <%= @pilot.contact_relation %>
+</p>
+
+<p>
+  <b>Paid:</b>
+  <%= @pilot.paid? ? 'Yes' : 'No' %>
+</p>
+<p>
+  <b>Contact phone:</b>
+  <%= @pilot.contact_phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_pilot_path(@pilot) %> |
+<%= link_to 'Back', pilots_path %>

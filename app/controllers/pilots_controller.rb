@@ -49,7 +49,10 @@ class PilotsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @pilot }
+      format.xml { render :xml => @pilot }
+      format.pdf {
+        render :pdf => "pilot_#{params[:id]}"
+      }
     end
   end
 
