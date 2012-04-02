@@ -1,13 +1,9 @@
-<img style="align: left" src="http://clubdevuelopb.com/open/images/logo.png">
+<img style="float: left" src="http://clubdevuelopb.com/open/images/logo.png">
 <h1>I Open de Ala Delta de Pedro Bernardo</h1>
+<h2>28 de Abril - 1 de Mayo de 2012</h2>
 <p style="clear: left">
-  <b>Nombre:</b>
-  <%= @pilot.name %>
-</p>
-
-<p>
-  <b>Apellidos:</b>
-  <%= @pilot.surname %>
+  <b>Nombre y apellidos:</b>
+  <%= @pilot.name %> <%= @pilot.surname %>
 </p>
 
 <p>
@@ -46,28 +42,13 @@
 </p>
 
 <p>
-  <b>Fabricante:</b>
-  <%= @pilot.glider_manuf %>
+  <b>Fabricante y modelo:</b>
+  <%= @pilot.glider_manuf.upcase %> <%= @pilot.glider_model %>
 </p>
 
 <p>
-  <b>Modelo:</b>
-  <%= @pilot.glider_model %>
-</p>
-
-<p>
-  <b>Contacto de emergencia (nombre):</b>
-  <%= @pilot.contact_name %>
-</p>
-
-<p>
-  <b>Relación:</b>
-  <%= @pilot.contact_relation %>
-</p>
-
-<p>
-  <b>Teléfono:</b>
-  <%= @pilot.contact_phone %>
+  <b>Contacto de emergencia (nombre/relación/tlfno.):</b>
+  <%= @pilot.contact_name %> <%= @pilot.contact_relation %> <%= @pilot.contact_phone %>
 </p>
 <p>
   <b>Grupo sanguíneo:</b>
