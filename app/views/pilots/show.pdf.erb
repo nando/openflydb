@@ -5,17 +5,6 @@
   <b>Nombre y apellidos:</b>
   <%= @pilot.name %> <%= @pilot.surname %>
 </p>
-
-<p>
-  <b>Talla camiseta:</b>
-  <%= @pilot.tshirt_size %>
-</p>
-
-<p>
-  <b>Club:</b>
-  <%= @pilot.club_name %>
-</p>
-
 <p>
   <b>Dirección:</b>
   <%= @pilot.address %>
@@ -37,7 +26,17 @@
 </p>
 
 <p>
-  <b>Tipo de ala:</b>
+  <b>Club:</b>
+  <%= @pilot.club_name %>
+</p>
+
+<p>
+  <b>Talla camiseta (S/M/L/XL):</b>
+  <%= @pilot.tshirt_size %>
+</p>
+
+<p>
+  <b>Tipo de ala (Sport/Calva/Rígida):</b>
   <%= @pilot.glider_class %>
 </p>
 
