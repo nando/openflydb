@@ -20,6 +20,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @pilots.each do |pilot| %>
@@ -40,6 +41,7 @@
     <td><%= pilot.contact_phone %></td>
     <td><%= pilot.paid? ? 'Yes' : 'No' %></td>
     <td><%= link_to 'Show', pilot %></td>
+    <td><%= link_to 'PDF', pilot_path(pilot, :format => :pdf) %></td>
     <td><%= link_to('Edit', edit_pilot_path(pilot)) %></td>
     <td><%= link_to('Destroy', pilot, :confirm => 'Are you sure?', :method => :delete) %></td>
   </tr>
