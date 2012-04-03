@@ -48,7 +48,7 @@ class PilotsController < ApplicationController
     @pilot = Pilot.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :action => 'show.pdf.erb'}
       format.xml { render :xml => @pilot }
       format.pdf {
         render :pdf => "pilot_#{params[:id]}",
