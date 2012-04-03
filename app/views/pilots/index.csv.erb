@@ -1,5 +1,5 @@
-<% 
-  require 'csv'
+<% require 'csv' %>
+<%=
   raw(CSV.generate(:force_quotes =>true) do |csv|
     attr_names = @pilots.first.attributes.keys
     csv << attr_names
