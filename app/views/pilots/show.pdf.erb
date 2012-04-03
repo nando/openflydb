@@ -1,6 +1,24 @@
-<img style="float: left; margin-right: 15px; margin-bottom: 15px;" src="http://clubdevuelopb.com/open/images/logo.png">
-<h1 style="font-size: 28px; margin-top: 5px;">I Open de Ala Delta de Pedro Bernardo</h1>
-<h2 style="fond-size: 18px;">Solicitud de Inscripción</h2>
+<style>
+body{
+  font:16px Helvetica,Arial,sans-serif;
+  line-height:1.2em;
+}
+img {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+h1 {
+  padding-top: 25px; margin-top: 0px;
+}
+p {
+  padding-left: 5px;
+}
+
+</style>
+<img src="http://clubdevuelopb.com/open/images/logo.png">
+<h1>I Open de Ala Delta de Pedro Bernardo</h1>
+<h2>Solicitud de Inscripción</h2>
 <p style="clear: left">
   <b>Nombre y apellidos:</b>
   <%= @pilot.name %> <%= @pilot.surname %>
@@ -27,17 +45,17 @@
 
 <p>
   <b>Club:</b>
-  <%= @pilot.club_name %>
+  <%= @pilot.club_name.upcase %>
 </p>
 
 <p>
   <b>Talla camiseta (S/M/L/XL):</b>
-  <%= @pilot.tshirt_size %>
+  <%= @pilot.tshirt %>
 </p>
 
 <p>
   <b>Tipo de ala (Sport/Calva/Rígida):</b>
-  <%= @pilot.glider_class %>
+  <%= @pilot.glider_type %>
 </p>
 
 <p>
@@ -59,7 +77,7 @@
 </p>
 <p>
   <b>Pagado:</b>
-  <%= @pilot.paid? ? 'Yes' : 'No' %>
+  <%= @pilot.paid? ? 'Sí' : 'No' %>
 </p>
 <p>
 El abajo firmante, mediante el presente escrito, manifiesta expresamente lo siguiente:</p>
