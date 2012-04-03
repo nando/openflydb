@@ -1,30 +1,11 @@
-<% require 'csv' %>
-<%= 
-  raw(CSV.generate(:force_quotes =>true) do |csv| 
-    @pilots.each do |p|
-      #pilot.attributes.each do |attr|
-      #  csv << pilot.send(attr)
-      #end
-      csv << [
-        p.id,
-        p.name,
-        p.surname,
-        p.tshirt_size,
-        p.club_name,
-        p.address,
-        p.city,
-        p.phone,
-        p.email,
-        p.glider_class,
-        p.glider_manuf,
-        p.glider_model,
-        p.contact_name,
-        p.contact_relation,
-        p.contact_phone,
-        p.blood_type,
-        p.allergies,
-        p.paid
-      ]
+<% 
+  require 'csv'
+  raw(CSV.generate(:force_quotes =>true) do |csv|
+    attr_names = @pilots.first.attributes.keys
+    csv << attr_names
+    @pilots.each do |pilot|
+      attrs = attr_names.inject([]) {|arr, attr| arr << pilot.send(attr)}
+      csv << attrs
     end
   end)
 %>
