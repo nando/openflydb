@@ -114,9 +114,13 @@ class PilotsController < ApplicationController
   end
   private
     def require_admin
-      return true if params[:action] == 'index' and params[:format] == 'json'
+      return true if public_index?
       set_admin_cookie if params[:admin]
       redirect_to("/404.html") unless admin?
+    end
+
+    def public_index?
+      params[:action] == 'index' and %w{json pdf}.include?(params[:format])
     end
 
     def set_admin_cookie
