@@ -67,8 +67,13 @@ p {
 
 <p>
   <b>Contacto de emergencia (nombre, relación y teléfono):</b><p>
-<p> <%= @pilot.contact_name %> (<%= @pilot.contact_relation %>) <%= @pilot.contact_phone %>
-</p>
+<p> 
+<%= @pilot.contact_name %>
+<% unless @pilot.contact_relation.blank? %>
+  (<%= @pilot.contact_relation %>)
+<% end %>
+<%= @pilot.contact_phone %>
+&nbsp;</p>
 <p>
   <b>Grupo sanguíneo:</b>
   <%= @pilot.blood_type %>
@@ -78,7 +83,11 @@ p {
   <%= @pilot.allergies %>
 </p>
 <p>
-  <b>Pagado:</b>
+  <b>Número de licencia:</b>
+  <%= @pilot.license %>
+</p>
+<p>
+  <b>Pagado por transferencia:</b>
   <%= @pilot.paid? ? 'Sí' : 'No' %>
 </p>
 <p>
@@ -97,3 +106,15 @@ El abajo firmante, mediante el presente escrito, manifiesta expresamente lo sigu
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <b>Firma:</b></p>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>D.N.I./Pasaporte:</b>
+  <%= @pilot.passport %>

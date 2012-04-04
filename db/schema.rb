@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120401203201) do
+ActiveRecord::Schema.define(:version => 20120404193311) do
 
   create_table "pilots", :force => true do |t|
     t.string   "name"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20120401203201) do
     t.string   "club_name"
     t.string   "address"
     t.string   "city"
-    t.string   "zip_code"
+    t.string   "license"
     t.string   "country"
     t.string   "phone"
-    t.string   "mobile_phone"
+    t.string   "passport"
     t.string   "email"
     t.integer  "glider_class"
     t.string   "glider_manuf"
