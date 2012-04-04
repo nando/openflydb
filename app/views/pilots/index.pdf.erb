@@ -1,7 +1,7 @@
 <style>
 body{
-  font:14px Helvetica,Arial,sans-serif;
-  line-height:0.9em;
+  font:12px Helvetica,Arial,sans-serif;
+  line-height:1.1em;
 }
 img {
   float: left;
@@ -29,15 +29,14 @@ th, td {
   border: solid 1px;
   padding: 5px;
 }
+td {
+  font-size: 0.9em;
+}
 th.name {
   text-align: left;
 }
-th.separator {
-  width: 30%;
-}
-
-
 </style>
+
 <img src="http://clubdevuelopb.com/open/images/logo.png">
 <h1>I Open de Ala Delta de Pedro Bernardo</h1>
 <h2>Registro de Despegues</h2>
@@ -48,21 +47,17 @@ th.separator {
   <tr>
     <th class="name">Nombre y apellidos</th>
     <th class="signature">Firma</th>
-    <th class="obs">Observaciones</th>
     <th class="name">Nombre y apellidos</th>
     <th class="signature">Firma</th>
-    <th class="obs">Observaciones</th>
   </tr>
 
   <tr>
 <% @pilots.each_with_index do |pilot, index| %>
     <td><%= pilot.name %> <%= pilot.surname %></td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
     <%= raw('</tr><tr>') if index.odd? %>
 <% end %>
 <% if @pilots.size.odd? %> 
-    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 <% end %>
