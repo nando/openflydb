@@ -33,7 +33,10 @@ td {
 }
 th.name {
   text-align: left;
-  width: 35%;
+  width: 33%;
+}
+th.track {
+  width: 5%;
 }
 </style>
 
@@ -47,17 +50,21 @@ th.name {
   <tr>
     <th class="name">Nombre y apellidos</th>
     <th class="signature">Firma</th>
+    <th class="track">Track</th>
     <th class="name">Nombre y apellidos</th>
     <th class="signature">Firma</th>
+    <th class="track">Track</th>
   </tr>
 
   <tr>
 <% @pilots.each_with_index do |pilot, index| %>
     <td><%= pilot.name %> <%= pilot.surname %></td>
     <td>&nbsp;</td>
+    <td>&nbsp;</td>
     <%= raw('</tr><tr>') if index.odd? %>
 <% end %>
 <% if @pilots.size.odd? %> 
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 <% end %>
