@@ -17,7 +17,7 @@ class PilotsController < ApplicationController
   def index
     @pilots = Pilot.order(:name, :surname)
     respond_to do |format|
-      format.html 
+      format.html #{ render :action => 'index.pdf.erb'}
       format.json {
         pilots = @pilots.map{|p|
           {
@@ -38,6 +38,10 @@ class PilotsController < ApplicationController
       format.xml {
         respond_with @pilots
       }
+      format.pdf {
+        render :pdf => "registro_de_despegues",
+               :layout => 'layouts/application.html.erb'
+      }
     end
 
   end
@@ -51,7 +55,7 @@ class PilotsController < ApplicationController
       format.html { render :action => 'show.pdf.erb'}
       format.xml { render :xml => @pilot }
       format.pdf {
-        render :pdf => "pilot_#{params[:id]}",
+        render :pdf => "piloto_#{params[:id]}",
                :layout => 'layouts/application.html.erb'
       }
     end
