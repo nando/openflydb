@@ -47,7 +47,7 @@ p {
 
 <p>
   <b>Club:</b>
-  <%= @pilot.club_name.upcase %>
+  <%= @pilot.club_name.upcase if @pilot.club_name %>
 </p>
 
 <p>
@@ -62,7 +62,7 @@ p {
 
 <p>
   <b>Fabricante y modelo:</b>
-  <%= @pilot.glider_manuf.upcase %> <%= @pilot.glider_model %>
+  <%= @pilot.glider_manuf.upcase if @pilot.glider_manuf %> <%= @pilot.glider_model %>
 </p>
 
 <p>
