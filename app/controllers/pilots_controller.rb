@@ -71,7 +71,7 @@ class PilotsController < ApplicationController
       format.xml  { render :xml => @pilot }
       format.pdf {
         render :pdf => "inscripcion_open_de_pb",
-               :action => 'show.pdf.erb',
+               :template => 'pilots/show',
                :layout => 'layouts/application.html.erb'
       }
     end
