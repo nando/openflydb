@@ -11,6 +11,8 @@ namespace :openflydb do
 
   def elems_for(pilot)
 puts pilot
+      sleep 1
+      agent = Mechanize.new
       url = 'http://civlrankings.fai.org/FL.aspx?a=308'
       page = agent.post(url, {"ctl02$ctr_search_for_person" => pilot,
         '__EVENTARGUMENT' => '',	
@@ -19,7 +21,7 @@ puts pilot
         'ctl02$ctr_search_button' => 'Find',
         '__VIEWSTATE' => '/wEPDwULLTE2OTc3ODE0MDBkZKbgiS2cHL1GR70jvZbMrJbmDVnn'})
       doc = Hpricot(page.parser.to_s)
-      elems = doc/"td[@class=list_row]"
+      return doc/"td[@class=list_row]"
   end
 
 
@@ -29,7 +31,6 @@ puts pilot
       'Spain' => 'ESP',
       'Portugal' => 'PRT'
     }
-    agent = Mechanize.new
 
     Pilot.all.each do |p|
       elems = elems_for(p.name + ' ' + p.surname)
