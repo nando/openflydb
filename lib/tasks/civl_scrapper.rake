@@ -4,7 +4,7 @@ require 'open-uri'
 require 'hpricot'
 require 'mechanize'
 
-require 'ruby-debug'
+#require 'ruby-debug'
 
 namespace :openflydb do
   desc "Carga de datos de los pilotos desde fai.org"
