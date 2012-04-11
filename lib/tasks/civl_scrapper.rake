@@ -41,9 +41,9 @@ puts pilot
         civl_id = elems[0].inner_html
         sex = elems[2].inner_html
         nat = COUNTRIES[elems[3].inner_html]
-        puts "#{pilot} #{civl_id} #{nat} #{sex}"
+        puts "#{p.name} #{p.surname}: #{civl_id} #{nat} #{sex}"
       else
-        puts "=================================> Piloto no encontrado '#{pilot}'"
+        puts "=================================> Piloto no encontrado '#{p.name} #{p.surname}'"
       end
       sleep 2
     end
