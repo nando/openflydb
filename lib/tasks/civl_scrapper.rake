@@ -1,3 +1,4 @@
+#encoding: UTF-8
 require 'rubygems'
 require 'cgi'
 require 'open-uri'
