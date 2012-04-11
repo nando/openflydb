@@ -7,7 +7,7 @@ require 'mechanize'
 require 'ruby-debug'
 
 namespace :openflydb do
-  desc "Carga información de los pilotos desde fai.org"
+  desc "Carga de datos de los pilotos desde fai.org"
   task :civl_scrapper => :environment do
     COUNTRIES = {
       'Spain' => 'ESP',
