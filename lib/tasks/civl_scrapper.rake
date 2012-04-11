@@ -16,7 +16,7 @@ namespace :openflydb do
     agent = Mechanize.new
 
     Pilot.all.each do |p|
-      pilot = p.name + ' ' + p.surname
+      pilot = p.name.gsub(/\(.+\)/, '') + ' ' + p.surname
       url = 'http://civlrankings.fai.org/FL.aspx?a=308'
       page = agent.post(url, {"ctl02$ctr_search_for_person" => pilot,
         '__EVENTARGUMENT' => '',	
@@ -36,6 +36,7 @@ namespace :openflydb do
       else
         puts "=================================> Piloto no encontrado  '#{pilot}'"
       end
+      sleep 2
     end
     
   end
