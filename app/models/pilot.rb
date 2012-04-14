@@ -19,4 +19,8 @@ class Pilot < ActiveRecord::Base
   def tshirt
     TSHIRT_SIZES[tshirt_size]
   end
+
+  def female?
+    gender && gender.upcase == 'F'
+  end
 end

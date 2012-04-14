@@ -9,12 +9,13 @@
                      birthday=""
                      glider_main_colors=""
                      fai_licence=""
-                     female=""
-                     nat_code_3166_a3=""
+                     female="<%= pilot.female? ? '1' : '0' %>"
+                     nat_code_3166_a3="<%= pilot.nat.upcase %>"
                      sponsor=""
-                     CIVLID="">
+                     CIVLID="<%= pilot.civl_id %>">
         <FsCustomAttributes>
           <FsCustomAttribute name="Club" value="<%= pilot.club_name.upcase %>" />
+          <FsCustomAttribute name="Zone" value="<%= pilot.team.upcase %>" />
           <FsCustomAttribute name="Tipo de Ala" value="<%= pilot.glider_type %>" />
           <FsCustomAttribute name="Sport" value="<%= pilot.glider_class == 0 ? '1' : '0' %>" />
           <FsCustomAttribute name="Fabricante" value="<%= pilot.glider_manuf.upcase %>" />
