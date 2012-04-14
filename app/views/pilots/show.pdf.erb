@@ -17,6 +17,22 @@ p {
   padding-left: 5px;
 }
 
+table.vote {
+  border: solid 1px black;
+  float: left;
+  padding: 5px 20px 5px 20px;
+  margin: 15px 70px 35px 20px;
+}
+
+table.vote th {
+  border-bottom: solid 1px black;
+}
+
+table.vote td {
+  height: 60px;
+}
+
+
 </style>
 <img src="http://clubdevuelopb.com/open/images/logo.png">
 <h1>I Open de Ala Delta de Pedro Bernardo</h1>
@@ -100,21 +116,16 @@ El abajo firmante, mediante el presente escrito, manifiesta expresamente lo sigu
 <li>Que no padece enfermedad ni incapacidad física o psíquica alguna que le impida competir en ala delta sin poner en riesgo su seguridad ni la del resto de participantes.
 </li>
 </ol>
+<table class="vote">
+<tr><th>VOTA COMO PILOTO PARA EL COMITÉ A:</th></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
 <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <b>Firma:</b></p>
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p>
   <b>D.N.I./Pasaporte:</b>
   <%= @pilot.passport %>
+</p>
