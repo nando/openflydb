@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404193311) do
+ActiveRecord::Schema.define(:version => 20120414105600) do
 
   create_table "pilots", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(:version => 20120404193311) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "paid"
+    t.string   "civl_id"
+    t.string   "gender",           :limit => 1
+    t.string   "team"
   end
 
 end

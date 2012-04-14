@@ -21,12 +21,35 @@
     <%= f.text_field :surname %>
   </div>
   <div class="field">
+    <%= f.label "Género (M/F)" %><br />
+    <%= f.text_field :gender, :maxlength => 1 %>
+  </div>
+  <div class="field">
     <%= f.label 'D.N.I./Pasaporte' %><br />
     <%= f.text_field :passport %>
   </div>
   <div class="field">
     <%= f.label "Talla de camiseta" %><br />
     <%= f.text_field :tshirt_size %>
+  </div>
+  <div class="field">
+    <%= f.label "Nacionalidad (ISO ALPHA-3, p.e. ESP)" %><br />
+    <%= f.text_field :nationality, :maxlength => 3 %>
+  </div>
+  <div class="field">
+    <%= f.label "Equipo" %><br />
+      <select class="required" name="pilot[team]" id="pilot_tshirt_size">
+      <option value="ARCONES">ARCONES</option>
+      <option value="PIEDRAHITA">PIEDRAHITA</option>
+      <option value="PEDRO BERNARDO">PEDRO BERNARDO</option>
+      <option value="PORTUGUÉS">PORTUGUÉS</option>
+      <option value="MERIDIONAL">MERIDIONAL</option>
+      <option value="SEPTENTRIONAL">SEPTENTRIONAL</option>
+      </select>
+  </div>
+  <div class="field">
+    <%= f.label "CIVL ID" %><br />
+    <%= f.text_field :civl_id %>
   </div>
   <div class="field">
     <%= f.label "Club" %><br />
