@@ -17,6 +17,7 @@
     <th>Contact relation</th>
     <th>Contact phone</th>
     <th>Paid</th>
+    <th>Nat</th>
     <th></th>
     <th></th>
     <th></th>
@@ -40,6 +41,7 @@
     <td><%= pilot.contact_relation %></td>
     <td><%= pilot.contact_phone %></td>
     <td><%= pilot.paid? ? 'Yes' : 'No' %></td>
+    <td><%= pilot.nationality %></td>
     <td><%= link_to 'Show', pilot %></td>
     <td><%= link_to 'PDF', pilot_path(pilot, :format => :pdf) %></td>
     <td><%= link_to('Edit', edit_pilot_path(pilot)) %></td>

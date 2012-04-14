@@ -10,7 +10,7 @@ require 'mechanize'
 namespace :openflydb do
 
   def elems_for(pilot)
-      printf "Buscando #{pilot}..."
+      printf "buscando #{pilot}..."
       sleep 1
       agent = Mechanize.new
       url = 'http://civlrankings.fai.org/FL.aspx?a=308'
@@ -34,6 +34,7 @@ namespace :openflydb do
   desc "Carga de datos de los pilotos desde fai.org"
   task :civl_scrapper => :environment do
     COUNTRIES = {
+      'Chile' => 'CHL',
       'Spain' => 'ESP',
       'Portugal' => 'PRT'
     }
