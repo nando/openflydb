@@ -39,7 +39,7 @@ namespace :openflydb do
       'Portugal' => 'PRT'
     }
 
-    Pilot.where(:nationality => nil).each do |p|
+    Pilot.where(:civl_id => nil).each do |p|
       elems = elems_for(p.name + ' ' + p.surname)
       elems = elems_for(p.surname + ' ' + p.name) unless elems.size == 4
       elems = elems_for((p.name + ' ' + p.surname).gsub(/ñ/,'n')) unless elems.size == 4
@@ -56,7 +56,6 @@ namespace :openflydb do
           :gender => sex,
           :nationality => nat)
       else
-        p.update_attributes(:nationality => 'ESP', :gender => 'M')
         puts "=================================> Piloto no encontrado '#{p.name} #{p.surname}'"
       end
       sleep 2
