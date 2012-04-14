@@ -56,6 +56,7 @@ namespace :openflydb do
           :gender => sex,
           :nationality => nat)
       else
+        p.update_attributes(:nationality => 'ESP', :gender => 'M')
         puts "=================================> Piloto no encontrado '#{p.name} #{p.surname}'"
       end
       sleep 2
