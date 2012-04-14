@@ -10,7 +10,7 @@ require 'mechanize'
 namespace :openflydb do
 
   def elems_for(pilot)
-puts pilot
+      printf "Buscando #{pilot}..."
       sleep 1
       agent = Mechanize.new
       url = 'http://civlrankings.fai.org/FL.aspx?a=308'
@@ -21,7 +21,13 @@ puts pilot
         'ctl02$ctr_search_button' => 'Find',
         '__VIEWSTATE' => '/wEPDwULLTE2OTc3ODE0MDBkZKbgiS2cHL1GR70jvZbMrJbmDVnn'})
       doc = Hpricot(page.parser.to_s)
-      return doc/"td[@class=list_row]"
+      res = doc/"td[@class=list_row]"
+      if res.size == 4
+        puts "ENCONTRADO!!!"
+      else
+        puts "no encontrado."
+      end
+      return res
   end
 
 
@@ -34,7 +40,7 @@ puts pilot
 
     Pilot.where(:nationality => nil).each do |p|
       elems = elems_for(p.name + ' ' + p.surname)
-      elems = elems_for(p.surname + ' ' + p.name)
+      elems = elems_for(p.surname + ' ' + p.name) unless elems.size == 4
       elems = elems_for((p.name + ' ' + p.surname).gsub(/ñ/,'n')) unless elems.size == 4
       elems = elems_for(p.name.gsub(/ \(.+\)/, '') + ' ' + p.surname) unless elems.size == 4
       elems = elems_for((p.name.gsub(/ \(.+\)/, '') + ' ' + p.surname).gsub(/ñ/,'n')) unless elems.size == 4
@@ -43,7 +49,7 @@ puts pilot
         sex = elems[2].inner_html
         country = elems[3].inner_html
         nat = COUNTRIES[country]
-        puts "#{p.name} #{p.surname}: #{civl_id} #{nat} #{sex}"
+        puts "Actualizando información de #{p.name} #{p.surname}: #{civl_id} #{country} #{sex}"
         p.update_attributes(
           :civl_id => civl_id,
           :gender => sex,
