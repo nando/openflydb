@@ -12,6 +12,8 @@ class Pilot < ActiveRecord::Base
     4 => 'XL'
   }
 
+  before_create :defaults
+
   def glider_type
     GLIDER_TYPES[glider_class]
   end
@@ -22,5 +24,10 @@ class Pilot < ActiveRecord::Base
 
   def female?
     gender && gender.upcase == 'F'
+  end
+
+  def defaults
+    self.nationality = 'ESP'
+    self.gender = 'M'
   end
 end
