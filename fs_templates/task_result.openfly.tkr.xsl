@@ -91,7 +91,7 @@
 
 	<!-- list of startgates -->
 	<xsl:template name="FsStartGate_list">
-		<xsl:text>StartGate(s): </xsl:text>
+		<xsl:text>Ventana/s de Salida: </xsl:text>
 		<xsl:value-of select="substring($task/FsTaskDefinition/FsStartGate[1]/@open, 12, 14)"/>
 		<xsl:for-each select="$task/FsTaskDefinition/FsStartGate[position() > 1]">
 			<xsl:text>, </xsl:text>
