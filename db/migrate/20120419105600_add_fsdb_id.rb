@@ -1,4 +1,4 @@
-class AddCivlid < ActiveRecord::Migration
+class AddFsdblid < ActiveRecord::Migration
   def self.up
     add_column :pilots, :fsdb_id, :string
     add_index :fsdb_id, :unique => true
