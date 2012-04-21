@@ -18,7 +18,7 @@ class Pilot < ActiveRecord::Base
   before_create :set_fsdb_id
 
   def set_fsdb_id
-    fsdb_id ||= Pilot.max(:fsdb_id) + 1
+    fsdb_id ||= Pilot.maximum(:fsdb_id) + 1
   end
     
 

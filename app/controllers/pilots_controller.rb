@@ -96,6 +96,9 @@ class PilotsController < ApplicationController
     @pilot = Pilot.new(params[:pilot])
     referer_base = request.referer[/^.*\//]
     redirect_to referer_base + (@pilot.save ? 'ok' : 'ko') + '.html'
+  rescue
+    logger.info $!
+    redirect_to referer_base + 'ko.html'
   end
 
   # PUT /pilots/1
