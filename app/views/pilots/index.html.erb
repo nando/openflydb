@@ -1,6 +1,6 @@
 <h2>Pilotos inscritos</h2>
 
-<table style="clear: left; width: 780px;">
+<table style="clear: left;">
   <tr>
     <th width="1%">#</th>
     <th>Nombre</th>
@@ -13,9 +13,9 @@
 <% @pilots.each do |pilot| %>
   <tr>
     <td><%= pilot.fsdb_id %></td>
-    <td><%= "#{pilot.name} #{pilot.surname}" %></td>
-    <td><%= pilot.nationality %></td>
-    <td><%= pilot.club_name %></td>
+    <td><strong><%= "#{pilot.name} #{pilot.surname}" %></strong></td>
+    <td><%= pilot.nationality.upcase %></td>
+    <td><%= pilot.club_name.upcase %></td>
     <td><%= pilot.glider_manuf.upcase %> <%= pilot.glider_model %></td>
     <td><%= pilot.glider_type %></td>
   </tr>
