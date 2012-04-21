@@ -19,7 +19,8 @@ class Pilot < ActiveRecord::Base
 
   def set_fsdb_id
     logger.info "Pilot.maximum #{Pilot.maximum(:fsdb_id)}"
-    fsdb_id ||= Pilot.maximum(:fsdb_id) + 1
+    self.fsdb_id ||= Pilot.maximum(:fsdb_id) + 1
+    logger.info "fsdb_id #{self.fsdb_id)}"
   end
     
 
