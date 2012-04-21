@@ -3,7 +3,7 @@
   <FsCompetition id="0" name="OpenflyDB Comp" location="OpenflyDB loc" from="2012-04-28" to="2012-05-01" utc_offset="+2">
     <FsParticipants>
 <% @pilots.each do |pilot| -%>
-      <FsParticipant id="<%= pilot.id %>"
+      <FsParticipant id="<%= pilot.fsdb_id %>"
                      name="<%= "#{pilot.name} #{pilot.surname}" %>"
                      glider="<%= "#{pilot.glider_manuf.upcase} #{pilot.glider_model}" %>"
                      birthday=""
