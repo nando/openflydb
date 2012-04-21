@@ -108,7 +108,9 @@ class PilotsController < ApplicationController
 
     respond_to do |format|
       if @pilot.update_attributes(params[:pilot])
-        format.html { redirect_to(@pilot, :notice => 'Pilot was successfully updated.') }
+        format.html { redirect_to(@pilot,
+          :view => 'admin',
+          :notice => 'Pilot was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -124,7 +126,7 @@ class PilotsController < ApplicationController
     @pilot.destroy
 
     respond_to do |format|
-      format.html { redirect_to(pilots_url) }
+      format.html { redirect_to(pilots_url, :view => 'admin') }
       format.xml  { head :ok }
     end
   end
