@@ -6,8 +6,39 @@
   <%#= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+
+<style>
+body{
+  font:16px Helvetica,Arial,sans-serif;
+  line-height:1.1em;
+}
+img {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+h1 {
+  font-size: 1.8em; 
+  padding-top: 25px;
+  margin-top: 0px;
+}
+table {
+  font-size: 0.9em;
+  width: 100%;
+  border-spacing: 0px;
+}
+th, td {
+  border: solid 1px;
+  padding: 5px;
+}
+
+
+</style>
+
 </head>
 <body>
+<img src="/images/logo.png">
+<h1>I Open de Ala Delta de Pedro Bernardo</h1>
 
 <%= yield %>
 

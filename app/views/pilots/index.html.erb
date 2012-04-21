@@ -1,55 +1,23 @@
-<h1>Listing pilots</h1>
+<h2>Pilotos inscritos</h2>
 
-<table>
+<table style="clear: left; width: 780px;">
   <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th>Tshirt size</th>
-    <th>Club name</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Glider class</th>
-    <th>Glider manuf</th>
-    <th>Glider model</th>
-    <th>Contact name</th>
-    <th>Contact relation</th>
-    <th>Contact phone</th>
-    <th>Paid</th>
+    <th width="1%">#</th>
+    <th>Nombre</th>
     <th>Nat</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Club</th>
+    <th>Ala</th>
+    <th width="1%">Tipo</th>
   </tr>
 
 <% @pilots.each do |pilot| %>
   <tr>
-    <td><%= pilot.name %></td>
-    <td><%= pilot.surname %></td>
-    <td><%= pilot.tshirt_size %></td>
-    <td><%= pilot.club_name %></td>
-    <td><%= pilot.address %></td>
-    <td><%= pilot.city %></td>
-    <td><%= pilot.phone %></td>
-    <td><%= pilot.email %></td>
-    <td><%= pilot.glider_class %></td>
-    <td><%= pilot.glider_manuf %></td>
-    <td><%= pilot.glider_model %></td>
-    <td><%= pilot.contact_name %></td>
-    <td><%= pilot.contact_relation %></td>
-    <td><%= pilot.contact_phone %></td>
-    <td><%= pilot.paid? ? 'Yes' : 'No' %></td>
+    <td><%= pilot.fsdb_id %></td>
+    <td><%= "#{pilot.name} #{pilot.surname}" %></td>
     <td><%= pilot.nationality %></td>
-    <td><%= link_to 'Show', pilot %></td>
-    <td><%= link_to 'PDF', pilot_path(pilot, :format => :pdf) %></td>
-    <td><%= link_to('Edit', edit_pilot_path(pilot)) %></td>
-    <td><%= link_to('Destroy', pilot, :confirm => 'Are you sure?', :method => :delete) %></td>
+    <td><%= pilot.club_name %></td>
+    <td><%= pilot.glider_manuf.upcase %> <%= pilot.glider_model %></td>
+    <td><%= pilot.glider_type %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Pilot', new_pilot_path %>

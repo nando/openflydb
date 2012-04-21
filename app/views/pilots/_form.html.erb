@@ -1,3 +1,4 @@
+<div style="clear: both;">
 <%= form_for(@pilot) do |f| %>
   <% if @pilot.errors.any? %>
     <div id="error_explanation">
@@ -10,8 +11,12 @@
       </ul>
     </div>
   <% end %>
-  <fieldset>
-  <h3>Datos personales</h3>
+  <fieldset style="float: left;">
+  <h3>Datos piloto</h3>
+  <div class="field">
+    <%= f.label 'Dorsal FSDB' %><br />
+    <%= f.text_field :fsdb_id %>
+  </div>
   <div class="field">
     <%= f.label 'Nombre' %><br />
     <%= f.text_field :name %>
@@ -80,21 +85,6 @@
   </div>
   </fieldset>
   <fieldset>
-  <h3>Tipo de Ala</h3>
-  <div class="field">
-    <%= f.label "Clase" %><br />
-    <%= f.text_field :glider_class %>
-  </div>
-  <div class="field">
-    <%= f.label "Fabricante" %><br />
-    <%= f.text_field :glider_manuf %>
-  </div>
-  <div class="field">
-    <%= f.label "Modelo" %><br />
-    <%= f.text_field :glider_model %>
-  </div>
-  </fieldset>
-  <fieldset>
   <h3>Contacto de emergencia</h3>
   <div class="field">
     <%= f.label "Nombre completo" %><br />
@@ -120,8 +110,24 @@
     <%= f.label "Pagado" %><br />
     <%= f.text_field :paid %>
   </div>
+  </fieldset>
+  <fieldset>
+  <h3>Tipo de Ala</h3>
+  <div class="field">
+    <%= f.label "Clase" %><br />
+    <%= f.text_field :glider_class %>
+  </div>
+  <div class="field">
+    <%= f.label "Fabricante" %><br />
+    <%= f.text_field :glider_manuf %>
+  </div>
+  <div class="field">
+    <%= f.label "Modelo" %><br />
+    <%= f.text_field :glider_model %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Actualizar' %>
   </div>
   </fieldset>
 <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414105600) do
+ActiveRecord::Schema.define(:version => 20120419105600) do
 
   create_table "pilots", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(:version => 20120414105600) do
     t.string   "civl_id"
     t.string   "gender",           :limit => 1
     t.string   "team"
+    t.integer  "fsdb_id"
   end
+
+  add_index "pilots", ["fsdb_id"], :name => "index_pilots_on_fsdb_id", :unique => true
 
 end

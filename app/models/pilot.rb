@@ -13,6 +13,14 @@ class Pilot < ActiveRecord::Base
   }
 
   before_create :defaults
+  validates_uniqueness_of :fsdb_id
+
+  before_create :set_fsdb_id
+
+  def set_fsdb_id
+    fsdb_id ||= Pilot.max(:fsdb_id) + 1
+  end
+    
 
   def glider_type
     GLIDER_TYPES[glider_class]

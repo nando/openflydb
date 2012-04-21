@@ -15,9 +15,15 @@ class PilotsController < ApplicationController
   # GET /pilots
   # GET /pilots.xml
   def index
-    @pilots = Pilot.order(:name, :surname)
+    @pilots = if params[:format].nil? and params[:view] == 'admin'
+      Pilot.order(:fsdb_id)
+    else
+      Pilot.order(:name, :surname)
+    end
     respond_to do |format|
-      format.html #{ render :action => 'index.pdf.erb'}
+      format.html {
+        render :action => "index#{'_admin' if params[:view] == 'admin'}.html.erb"
+      }
       format.json {
         pilots = @pilots.map{|p|
           {
