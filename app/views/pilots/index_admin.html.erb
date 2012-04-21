@@ -35,7 +35,7 @@
     <td><%= link_to 'Ver', pilot %></td>
     <td><%= link_to 'PDF', pilot_path(pilot, :format => :pdf) %></td>
     <td><%= link_to('Editar', edit_pilot_path(pilot)) %></td>
-    <td><%= link_to('Borrar', pilot, :confirm => "Seguro que quieres borrar a #{pilot.name}", :method => :delete) %></td>
+    <td><%= link_to('Borrar', pilot, :confirm => "¿Seguro que quieres borrar a #{pilot.name} #{pilot.surname}?", :method => :delete) %></td>
   </tr>
 <% end %>
 </table>
