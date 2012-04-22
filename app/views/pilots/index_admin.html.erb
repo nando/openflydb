@@ -3,6 +3,7 @@
 <table style="clear: left">
   <tr>
     <th>#</th>
+    <th>CIVL</th>
     <th>Nombre</th>
     <th>Nat</th>
     <th>Club</th>
@@ -10,7 +11,6 @@
     <th>Ciudad</th>
     <th>Teléfono</th>
     <th>Contacto</th>
-    <th>Relation</th>
     <th>Teléfono</th>
     <th>€</th>
     <th></th>
@@ -22,6 +22,7 @@
 <% @pilots.each do |pilot| %>
   <tr>
     <td><%= pilot.fsdb_id %></td>
+    <td><%= pilot.civl_id %></td>
     <td><%= "#{pilot.name} #{pilot.surname}" %></td>
     <td><%= pilot.nationality %></td>
     <td><%= pilot.club_name %></td>
@@ -29,7 +30,6 @@
     <td><%= pilot.city %></td>
     <td><%= pilot.phone %></td>
     <td><%= pilot.contact_name %></td>
-    <td><%= pilot.contact_relation %></td>
     <td><%= pilot.contact_phone %></td>
     <td><%= pilot.paid? ? 'Sí' : 'No' %></td>
     <td><%= link_to 'Ver', pilot %></td>
