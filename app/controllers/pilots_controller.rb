@@ -27,6 +27,7 @@ class PilotsController < ApplicationController
       format.json {
         pilots = @pilots.map{|p|
           {
+            :fsdb_id => p.fsdb_id,
             :name => p.name,
             :surname => p.surname,
             :brand => p.glider_manuf.upcase,
