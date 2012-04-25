@@ -39,7 +39,7 @@ namespace :openflydb do
       'Portugal' => 'PRT'
     }
 
-    Pilot.where(:civl_id => nil).each do |p|
+    Pilot.where("civl_id IS NULL OR civl_id = ''").each do |p|
       elems = elems_for(p.name + ' ' + p.surname)
       elems = elems_for(p.surname + ' ' + p.name) unless elems.size == 4
       elems = elems_for((p.name + ' ' + p.surname).gsub(/ñ/,'n')) unless elems.size == 4
