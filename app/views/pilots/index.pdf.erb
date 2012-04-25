@@ -39,7 +39,7 @@ th.track {
 
   <tr>
 <% @pilots.each_with_index do |pilot, index| %>
-    <td><%= pilot.name %> <%= pilot.surname %></td>
+    <td><%= pilot.name.gsub(/ \(.+\)/, '') %> <%= pilot.surname %></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <%= raw('</tr><tr>') if index.odd? %>
