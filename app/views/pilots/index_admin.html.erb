@@ -12,6 +12,7 @@
     <th>Teléfono</th>
     <th>Contacto</th>
     <th>Teléfono</th>
+    <th>Fecha inscr.</th>
     <th>€</th>
     <th></th>
     <th></th>
@@ -31,6 +32,7 @@
     <td><%= pilot.phone %></td>
     <td><%= pilot.contact_name %></td>
     <td><%= pilot.contact_phone %></td>
+    <td><%= pilot.created_at %></td>
     <td><%= pilot.paid? ? 'Sí' : 'No' %></td>
     <td><%= link_to 'Ver', pilot %></td>
     <td><%= link_to 'PDF', pilot_path(pilot, :format => :pdf) %></td>
