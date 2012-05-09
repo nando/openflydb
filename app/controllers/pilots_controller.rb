@@ -22,7 +22,11 @@ class PilotsController < ApplicationController
     end
     respond_to do |format|
       format.html {
-        render :action => "index#{'_admin' if params[:view] == 'admin'}.html.erb"
+        if params[:view] == 'admin' and params[:emails] == 'true'
+          render :text => @pilots.map{|p| p.email}.join(',')
+        else
+          render :action => "index#{'_admin' if params[:view] == 'admin'}.html.erb"
+        end
       }
       format.json {
         pilots = @pilots.map{|p|
