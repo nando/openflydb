@@ -12,14 +12,20 @@ class Pilot < ActiveRecord::Base
     4 => 'XL'
   }
 
+  belongs_to :competition
   before_create :defaults
-  validates_uniqueness_of :fsdb_id
+  validates_uniqueness_of :fsdb_id, :scope => :competition_id
+  validates_presence_of :competition
 
   before_create :set_fsdb_id
 
   def set_fsdb_id
     logger.info "Pilot.maximum #{Pilot.maximum(:fsdb_id)}"
-    self.fsdb_id ||= Pilot.maximum(:fsdb_id) + 1
+    self.fsdb_id ||= if previous = Pilot.where('surname like ?', "%#{self.surname.strip}%").first
+      previous.fsdb_id
+    else
+      (Pilot.maximum(:fsdb_id) || 0) + 1
+    end
     logger.info "fsdb_id #{self.fsdb_id}"
   end
     
