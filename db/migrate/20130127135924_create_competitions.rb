@@ -1,15 +1,15 @@
 # encoding: UTF-8
 class CreateCompetitions < ActiveRecord::Migration
   def change
-    #create_table :competitions do |t|
-    #  t.string :name
-    #  t.string :dates
-    #  t.string :url
-    #  t.string :logo_url
-    #  t.string :location
-    #  t.string :from
-    #  t.string :to
-    #end
+    create_table :competitions do |t|
+      t.string :name
+      t.string :dates
+      t.string :url
+      t.string :logo_url
+      t.string :location
+      t.string :from
+      t.string :to
+    end
     [
      {
       :name => 'I Open de Ala Delta de Pedro Bernardo',
