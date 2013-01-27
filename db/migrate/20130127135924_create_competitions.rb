@@ -1,4 +1,4 @@
-#enconding: utf-8
+# encoding: UTF-8
 class CreateCompetitions < ActiveRecord::Migration
   def change
     #create_table :competitions do |t|
