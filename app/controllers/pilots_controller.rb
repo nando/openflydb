@@ -15,11 +15,10 @@ class PilotsController < ApplicationController
   # GET /pilots
   # GET /pilots.xml
   def index
-    @competition = Competition.find(params[:competition_id]||1)
     @pilots = if params[:format].nil? and params[:view] == 'admin'
-      @competition.pilots.order(:fsdb_id)
+      competition.pilots.order(:fsdb_id)
     else
-      @competition.pilots.order(:name, :surname)
+      competition.pilots.order(:name, :surname)
     end
     respond_to do |format|
       format.html {
@@ -99,10 +98,9 @@ class PilotsController < ApplicationController
   # POST /pilots
   # POST /pilots.xml
   def create
-    referer_base = request.referer[/^.*\//][0..-2]
     @pilot = Pilot.new(params[:pilot])
     @pilot.surname = params[:pilot][:surname].strip
-    @pilot.competition = Competition.find_by_url(referer_base)
+    @pilot.competition = competition
     redirect_to referer_base + (@pilot.save ? '/ok' : '/ko') + '.html'
   rescue
     logger.info $!
@@ -158,4 +156,11 @@ class PilotsController < ApplicationController
       "#{cookies[:admin]}" == "be937be440e14e7321f3faaff47e4643afd21e820c65fc2ea3f2d571fcee558e0da40eb43bdc5cbbb768a94979b4e4d2d72f9f30e5033b7347d0a1b7fba15e74"
     end
 
+    def referer_base
+      @referer_base ||= request.referer[/^.*\//][0..-2]
+    end
+
+    def competition
+      @competition ||= (params[:competition_id] ? Competition.find(params[:competition_id]) :  Competition.find_by_url(referer_base))
+    end
 end
