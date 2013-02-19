@@ -20,16 +20,9 @@ class Pilot < ActiveRecord::Base
   before_create :set_fsdb_id
 
   def set_fsdb_id
-    logger.info "Pilot.maximum #{Pilot.maximum(:fsdb_id)}"
-    self.fsdb_id ||= if previous = Pilot.where('surname like ?', "%#{self.surname.strip}%").first
-      previous.fsdb_id
-    else
-      (Pilot.maximum(:fsdb_id) || 0) + 1
-    end
-    logger.info "fsdb_id #{self.fsdb_id}"
+    self.fsdb_id ||= previous_fsdb_id || new_fsdb_id
   end
-    
-
+  
   def glider_type
     GLIDER_TYPES[glider_class]
   end
@@ -46,4 +39,17 @@ class Pilot < ActiveRecord::Base
     self.nationality = 'ESP'
     self.gender = 'M'
   end
+
+  private
+
+  def previous_fsdb_id
+    (Pilot.where('email like ?', "%#{self.email.strip}%").first ||
+     Pilot.where('phone like ?', "%#{self.phone.strip}%").first ||
+     Pilot.where('surname like ?', "%#{self.surname.strip}%").first).fsdb_id rescue nil
+  end
+  
+  def new_fsdb_id
+    (Pilot.maximum(:fsdb_id) || 0) + 1
+  end
+
 end
