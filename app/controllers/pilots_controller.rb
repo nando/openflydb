@@ -1,6 +1,7 @@
 # encoding: UTF-8
 class PilotsController < ApplicationController
   before_filter :require_admin, :except => :create
+  before_filter :set_pilot_and_competition, :only => [:show, :edit, :update, :destroy]
 
   def mailer_form
   end
@@ -62,8 +63,6 @@ class PilotsController < ApplicationController
   # GET /pilots/1
   # GET /pilots/1.xml
   def show
-    @pilot = Pilot.find(params[:id])
-
     respond_to do |format|
       format.html { render :action => 'show.pdf.erb' }
       format.xml { render :xml => @pilot }
@@ -77,7 +76,7 @@ class PilotsController < ApplicationController
   # GET /pilots/new
   # GET /pilots/new.xml
   def new
-    @pilot = Pilot.new
+    @pilot = Pilot.new(:competition => competition)
 
     respond_to do |format|
       format.html #{ render :action => 'show.pdf.erb' } 
@@ -92,7 +91,6 @@ class PilotsController < ApplicationController
 
   # GET /pilots/1/edit
   def edit
-    @pilot = Pilot.find(params[:id])
   end
 
   # POST /pilots
@@ -100,7 +98,7 @@ class PilotsController < ApplicationController
   def create
     @pilot = Pilot.new(params[:pilot])
     @pilot.surname = params[:pilot][:surname].strip
-    @pilot.competition = competition
+    @pilot.competition ||= competition
     redirect_to referer_base + (@pilot.save ? '/ok' : '/ko') + '.html'
   rescue
     logger.info $!
@@ -110,8 +108,6 @@ class PilotsController < ApplicationController
   # PUT /pilots/1
   # PUT /pilots/1.xml
   def update
-    @pilot = Pilot.find(params[:id])
-
     respond_to do |format|
       if @pilot.update_attributes(params[:pilot])
         format.html { redirect_to(@pilot,
@@ -128,7 +124,6 @@ class PilotsController < ApplicationController
   # DELETE /pilots/1
   # DELETE /pilots/1.xml
   def destroy
-    @pilot = Pilot.find(params[:id])
     @pilot.destroy
 
     respond_to do |format|
@@ -162,5 +157,10 @@ class PilotsController < ApplicationController
 
     def competition
       @competition ||= (params[:competition_id] ? Competition.find(params[:competition_id]) :  Competition.find_by_url(referer_base))
+    end
+
+    def set_pilot_and_competition
+      @pilot = Pilot.find(params[:id])
+      @competition = @pilot.competition
     end
 end
