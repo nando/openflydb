@@ -127,7 +127,7 @@ class PilotsController < ApplicationController
     @pilot.destroy
 
     respond_to do |format|
-      format.html { redirect_to pilots_url(:view => 'admin') }
+      format.html { redirect_to pilots_url(:view => 'admin', :competition_id => @pilot.competition_id) }
       format.xml  { head :ok }
     end
   end

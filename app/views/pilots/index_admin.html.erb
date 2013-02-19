@@ -37,11 +37,11 @@
     <td><%= link_to 'Ver', pilot %></td>
     <td><%= link_to 'PDF', pilot_path(pilot, :format => :pdf) %></td>
     <td><%= link_to('Editar', edit_pilot_path(pilot)) %></td>
-    <td><%= link_to('Borrar', pilot, :confirm => "¿Seguro que quieres borrar a #{pilot.name} #{pilot.surname}?", :method => :delete) %></td>
+    <td><%= button_to "Borrar", pilot, :method=>:delete, :confirm => "¿Seguro que quieres borrar a #{pilot.name} #{pilot.surname}?" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Nuevo Piloto', new_pilot_path %>
+<%= link_to 'Nuevo Piloto', new_pilot_path(:competition_id => @competition.id) %>
