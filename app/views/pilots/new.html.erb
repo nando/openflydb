@@ -2,4 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Volver al listado', pilots_path(:view => 'admin') %>
+<%= link_to 'Volver al listado', pilots_path(:view => 'admin', :competition_id => params[:competition_id]) %>

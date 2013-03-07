@@ -36,7 +36,7 @@ th, td {
 
 </head>
 <body>
-  <img src="<%= @competition.logo_url %>">
+  <a href="<%= pilots_path(:view => 'admin', :competition_id => @competition.id) %>"><img src="<%= @competition.logo_url %>"></a>
   <h1><%= @competition.name %></h1>
 
 <%= yield %>

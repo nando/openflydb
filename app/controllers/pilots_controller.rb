@@ -99,10 +99,10 @@ class PilotsController < ApplicationController
     @pilot = Pilot.new(params[:pilot])
     @pilot.surname = params[:pilot][:surname].strip
     @pilot.competition ||= competition
-    redirect_to referer_base + (@pilot.save ? '/ok' : '/ko') + '.html'
+    redirect_to referer_base + (@pilot.save ? '/ok' : '/ko') + ".html?competition_id=#{competition.id}"
   rescue
     logger.info $!
-    redirect_to referer_base + '/ko.html'
+    redirect_to referer_base + "/ko.html?competition_id=#{@pilot.competition_id}"
   end
 
   # PUT /pilots/1
@@ -160,7 +160,11 @@ class PilotsController < ApplicationController
     end
 
     def set_pilot_and_competition
-      @pilot = Pilot.find(params[:id])
-      @competition = @pilot.competition
+      if params[:id] == 'ok' or params[:id] == 'ko'
+        redirect_to :action => 'index', :view => 'admin', :competition_id => params[:competition_id]
+      else
+        @pilot = Pilot.find(params[:id])
+        @competition = @pilot.competition
+      end
     end
 end
