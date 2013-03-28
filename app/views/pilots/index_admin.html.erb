@@ -7,7 +7,6 @@
     <th>Nombre</th>
     <th>Nat</th>
     <th>Club</th>
-    <th>Dirección</th>
     <th>Ciudad</th>
     <th>Teléfono</th>
     <th>Contacto</th>
@@ -27,12 +26,11 @@
     <td><%= "#{pilot.name} #{pilot.surname}" %></td>
     <td><%= pilot.nationality %></td>
     <td><%= pilot.club_name %></td>
-    <td><%= pilot.address %></td>
     <td><%= pilot.city %></td>
     <td><%= pilot.phone %></td>
     <td><%= pilot.contact_name %></td>
     <td><%= pilot.contact_phone %></td>
-    <td><%= pilot.created_at %></td>
+    <td><%= l pilot.created_at, :format => :short %></td>
     <td><%= pilot.paid? ? 'Sí' : 'No' %></td>
     <td><%= link_to 'Ver', pilot %></td>
     <td><%= link_to 'PDF', pilot_path(pilot, :format => :pdf) %></td>

@@ -133,22 +133,24 @@ class PilotsController < ApplicationController
   end
   private
     def require_admin
-      return true if public_index?
-      set_admin_cookie if params[:admin]
-      redirect_to("/404.html") unless admin?
+      redirect_to("/404.html") unless public_index? or admin?
     end
 
     def public_index?
       params[:action] == 'index' and %w{json pdf}.include?(params[:format])
     end
 
-    def set_admin_cookie
-      cookies[:admin] = Digest::SHA512.hexdigest("#{params[:admin]}")
+    def current_user
+      @current_user ||= if session[:user_id]
+                          Pilot.find_by_id session[:user_id]
+                        elsif params[:admin] and admin = Pilot.find_with_password(params[:admin])
+                          session[:user_id] = admin.id
+                          admin
+                        end
     end
 
     def admin?
-      require 'digest/sha2'
-      "#{cookies[:admin]}" == "be937be440e14e7321f3faaff47e4643afd21e820c65fc2ea3f2d571fcee558e0da40eb43bdc5cbbb768a94979b4e4d2d72f9f30e5033b7347d0a1b7fba15e74"
+      current_user && current_user.admin?
     end
 
     def referer_base

@@ -1,0 +1,17 @@
+<h1>Competiciones</h1>
+
+<table style="clear: left;">
+  <tr>
+    <th>Nombre</th>
+    <th>Fecha</th>
+    <th>URL</th>
+  </tr>
+
+<% @competitions.each do |competition| %>
+  <tr>
+    <td><%= link_to competition.name, pilots_path(:view => 'admin', :competition_id => competition.id) %></td>
+    <td><%= competition.dates %></td>
+    <td><%= link_to competition.url, competition.url %></td>
+  </tr>
+<% end %>
+</table>

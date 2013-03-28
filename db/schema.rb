@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130127194158) do
+ActiveRecord::Schema.define(:version => 20130328122240) do
 
   create_table "competitions", :force => true do |t|
     t.string "name"
@@ -41,14 +41,19 @@ ActiveRecord::Schema.define(:version => 20130127194158) do
     t.string   "contact_name"
     t.string   "contact_relation"
     t.string   "contact_phone"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
     t.boolean  "paid"
     t.string   "civl_id"
     t.string   "gender",           :limit => 1
     t.string   "team"
     t.integer  "fsdb_id"
     t.integer  "competition_id"
+    t.date     "birthdate"
+    t.string   "zipcode",          :limit => 10
+    t.string   "fai_license",      :limit => 20
+    t.boolean  "admin",                           :default => false
+    t.string   "password",         :limit => 128
   end
 
   add_index "pilots", ["fsdb_id", "competition_id"], :name => "index_pilots_on_fsdb_id_and_competition_id", :unique => true

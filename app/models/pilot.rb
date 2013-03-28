@@ -1,4 +1,5 @@
 #encoding: utf-8
+require 'digest/sha2'
 class Pilot < ActiveRecord::Base
   GLIDER_TYPES = {
     0 => 'Mástil',
@@ -18,6 +19,9 @@ class Pilot < ActiveRecord::Base
   validates_presence_of :competition
 
   before_create :set_fsdb_id
+  before_save :crypt_password
+
+  attr_accessor :new_password
 
   def set_fsdb_id
     self.fsdb_id ||= previous_fsdb_id || new_fsdb_id
@@ -38,6 +42,14 @@ class Pilot < ActiveRecord::Base
   def defaults
     self.nationality = 'ESP'
     self.gender = 'M'
+  end
+
+  def crypt_password
+    self.password = Digest::SHA512.hexdigest(new_password) if new_password.present?
+  end
+
+  def self.find_with_password(password)
+    where(:password => Digest::SHA512.hexdigest(password)).first
   end
 
   private
