@@ -33,7 +33,7 @@
   <div class="control-group">
     <%= f.label :birthdate, 'Fecha de nacimiento', :class => 'control-label' %>
     <div class="controls date">
-      <%= f.date_select :birthdate, :class => 'date_select short' %>
+      <%= f.date_select :birthdate,:start_year => 1930, :end_year => 5.years.ago.year, :class => 'date_select short' %>
     </div>
   </div>
   <div class="control-group">
