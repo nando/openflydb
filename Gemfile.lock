@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/camdez/wkhtmltopdf-heroku.git
+  revision: 09f42e0fd9cf98361343738ccd7fdf6395df7dd0
+  specs:
+    wkhtmltopdf-heroku (0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -151,3 +157,4 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   wicked_pdf
+  wkhtmltopdf-heroku!
