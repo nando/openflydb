@@ -76,7 +76,8 @@ class PilotsController < ApplicationController
   # GET /pilots/new
   # GET /pilots/new.xml
   def new
-    @pilot = Pilot.new(:competition => competition)
+    @pilot = Pilot.new
+    @pilot.competition = competition
 
     respond_to do |format|
       format.html #{ render :action => 'show.pdf.erb' } 

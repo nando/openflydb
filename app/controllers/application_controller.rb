@@ -11,12 +11,7 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      @current_user ||= if session[:user_id]
-                          Pilot.find_by_id session[:user_id]
-                        elsif params[:admin] and admin = Pilot.find_with_password(params[:admin])
-                          session[:user_id] = admin.id
-                          admin
-                        end
+      @current_user ||= session[:user_id] ? Pilot.find_by_id(session[:user_id]) : nil
     end
 
     def admin?

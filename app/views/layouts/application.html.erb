@@ -43,14 +43,12 @@ th, td {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">OpenFlyDB</a>
+      <%= link_to "OpenFlyDB", competitions_path, :class => 'brand' %>
       <% if @competition %>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Competiciones", competitions_path %></li>
-          <li><%= link_to "Gestión", pilots_path(:view => 'admin', :competition_id => @competition.id) %></li>
+          <li><%= link_to "Gestión de pilotos", pilots_path(:view => 'admin', :competition_id => @competition.id) %></li>
           <li><%= link_to "Listado de inscritos", pilots_path(:competition_id => @competition.id) %></li>
           <li><%= link_to "Registro de despegues", pilots_path(:competition_id => @competition.id, :format => 'pdf') %></li>
           <li><%= link_to "FSDB", pilots_path(:competition_id => @competition.id, :format => 'fsdb') %></li>

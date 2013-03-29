@@ -1,5 +1,5 @@
 Openflydb::Application.routes.draw do
-  get "sessions/new"
+  post '/session', :controller => 'sessions', :action => 'create'
 
   resources :competitions
   resources :pilots do

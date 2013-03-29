@@ -1,79 +1,81 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Pilot -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @pilot.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @pilot.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:surname) %>:</strong></dt>
+  <dd><%= @pilot.surname %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:blood_type) %>:</strong></dt>
+  <dd><%= @pilot.blood_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:allergies) %>:</strong></dt>
+  <dd><%= @pilot.allergies %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nationality) %>:</strong></dt>
+  <dd><%= @pilot.nationality %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tshirt_size) %>:</strong></dt>
+  <dd><%= @pilot.tshirt_size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:club_name) %>:</strong></dt>
+  <dd><%= @pilot.club_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @pilot.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @pilot.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:license) %>:</strong></dt>
+  <dd><%= @pilot.license %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @pilot.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @pilot.phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:passport) %>:</strong></dt>
+  <dd><%= @pilot.passport %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @pilot.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:glider_class) %>:</strong></dt>
+  <dd><%= @pilot.glider_class %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:glider_manuf) %>:</strong></dt>
+  <dd><%= @pilot.glider_manuf %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:glider_model) %>:</strong></dt>
+  <dd><%= @pilot.glider_model %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_name) %>:</strong></dt>
+  <dd><%= @pilot.contact_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_relation) %>:</strong></dt>
+  <dd><%= @pilot.contact_relation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_phone) %>:</strong></dt>
+  <dd><%= @pilot.contact_phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:paid) %>:</strong></dt>
+  <dd><%= @pilot.paid %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:civl_id) %>:</strong></dt>
+  <dd><%= @pilot.civl_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
+  <dd><%= @pilot.gender %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:team) %>:</strong></dt>
+  <dd><%= @pilot.team %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fsdb_id) %>:</strong></dt>
+  <dd><%= @pilot.fsdb_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:competition_id) %>:</strong></dt>
+  <dd><%= @pilot.competition_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birthdate) %>:</strong></dt>
+  <dd><%= @pilot.birthdate %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zipcode) %>:</strong></dt>
+  <dd><%= @pilot.zipcode %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fai_license) %>:</strong></dt>
+  <dd><%= @pilot.fai_license %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:admin) %>:</strong></dt>
+  <dd><%= @pilot.admin %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:password) %>:</strong></dt>
+  <dd><%= @pilot.password %></dd>
+</dl>
 
-<p>
-  <b>Surname:</b>
-  <%= @pilot.surname %>
-</p>
-
-<p>
-  <b>Tshirt size:</b>
-  <%= @pilot.tshirt_size %>
-</p>
-
-<p>
-  <b>Club name:</b>
-  <%= @pilot.club_name %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @pilot.address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @pilot.city %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @pilot.phone %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @pilot.email %>
-</p>
-
-<p>
-  <b>Glider class:</b>
-  <%= @pilot.glider_class %>
-</p>
-
-<p>
-  <b>Glider manuf:</b>
-  <%= @pilot.glider_manuf %>
-</p>
-
-<p>
-  <b>Glider model:</b>
-  <%= @pilot.glider_model %>
-</p>
-
-<p>
-  <b>Contact name:</b>
-  <%= @pilot.contact_name %>
-</p>
-
-<p>
-  <b>Contact relation:</b>
-  <%= @pilot.contact_relation %>
-</p>
-
-<p>
-  <b>Paid:</b>
-  <%= @pilot.paid? ? 'Yes' : 'No' %>
-</p>
-<p>
-  <b>Contact phone:</b>
-  <%= @pilot.contact_phone %>
-</p>
-
-
-<%= link_to 'Edit', edit_pilot_path(@pilot) %> |
-<%= link_to 'Back', pilots_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              pilots_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_pilot_path(@pilot), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              pilot_path(@pilot),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

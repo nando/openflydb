@@ -1,5 +1,4 @@
-<div style="clear: both;">
-<%= form_for(@pilot) do |f| %>
+<%= form_for @pilot, :html => { :class => 'form-horizontal' } do |f| %>
   <% if @pilot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pilot.errors.count, "error") %> prohibited this pilot from being saved:</h2>
@@ -12,123 +11,192 @@
     </div>
   <% end %>
   <%= f.hidden_field :competition_id %>
-  <fieldset style="float: left;">
-  <h3>Datos piloto</h3>
-  <div class="field">
-    <%= f.label 'Dorsal FSDB' %><br />
-    <%= f.text_field :fsdb_id %>
+  <h3>Datos personales</h3>
+  <div class="control-group">
+    <%= f.label :name, 'Nombre', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label 'Nombre' %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :surname, 'Apellidos', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :surname, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label 'Apellidos' %><br />
-    <%= f.text_field :surname %>
+  <div class="control-group">
+    <%= f.label :gender, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :gender, :maxlength => 1, :class => 'text_field short' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Género (M/F)" %><br />
-    <%= f.text_field :gender, :maxlength => 1 %>
+  <div class="control-group">
+    <%= f.label :birthdate, 'Fecha de nacimiento', :class => 'control-label' %>
+    <div class="controls date">
+      <%= f.date_select :birthdate, :class => 'date_select short' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label 'D.N.I./Pasaporte' %><br />
-    <%= f.text_field :passport %>
+  <div class="control-group">
+    <%= f.label :passport, 'DNI/Pasaporte', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :passport, :class => 'medium text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Talla de camiseta" %><br />
-    <%= f.text_field :tshirt_size %>
+  <div class="control-group">
+    <%= f.label :license, 'Licencia', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :license, :class => 'text_field medium' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Nacionalidad (ISO ALPHA-3, p.e. ESP)" %><br />
-    <%= f.text_field :nationality, :maxlength => 3 %>
+  <div class="control-group">
+    <%= f.label :fai_license, 'Licencia FAI', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fai_license, :class => 'medium text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Equipo" %><br />
-      <select class="required" name="pilot[team]" id="pilot_tshirt_size">
-      <option value=""></option>
-      <option value="NORTEÑOS">NORTEÑOS</option>
-      <option value="SUREÑOS">SUREÑOS</option>
-      <option value="LUSOS">LUSOS</option>
-      <option value="GUADARRAMAS">GUADARRAMAS</option>
-      <option value="GREDOSIANOS">GREDOSIANOS</option>
-      </select>
+  <div class="control-group">
+    <%= f.label :blood_type, 'Grupo sanguíneo', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :blood_type, :class => 'short text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "CIVL ID" %><br />
-    <%= f.text_field :civl_id %>
+  <div class="control-group">
+    <%= f.label :allergies, 'Alergias', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :allergies, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Club" %><br />
-    <%= f.text_field :club_name %>
+  <div class="control-group">
+    <%= f.label :nationality, 'Nacionalidad', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nationality, :maxlength => 3, :class => 'short text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Licencia" %><br />
-    <%= f.text_field :license %>
+  <div class="control-group">
+    <%= f.label :tshirt_size, 'Talla camiseta', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :tshirt_size, :class => 'number_field' %>
+    </div>
   </div>
-  </fieldset>
-  <fieldset>
-  <h3>Datos de contacto</h3>
-  <div class="field">
-    <%= f.label "Dirección" %><br />
-    <%= f.text_field :address %>
+  <div class="control-group">
+    <%= f.label :club_name, 'Club', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :club_name, :class => 'medium text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Ciudad" %><br />
-    <%= f.text_field :city %>
+  <div class="control-group">
+    <%= f.label :address, 'Dirección', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Teléfono fijo" %><br />
-    <%= f.text_field :phone %>
+  <div class="control-group">
+    <%= f.label :city, 'Ciudad', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :city, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Correo electrónico" %><br />
-    <%= f.text_field :email %>
+  <div class="control-group">
+    <%= f.label :zipcode, 'Código Postal', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :zipcode, :class => 'short text_field' %>
+    </div>
   </div>
-  </fieldset>
-  <fieldset>
-  <h3>Contacto de emergencia</h3>
-  <div class="field">
-    <%= f.label "Nombre completo" %><br />
-    <%= f.text_field :contact_name %>
+  <div class="control-group">
+    <%= f.label :team, 'Comunidad Autónoma', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :team, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Relación contigo" %><br />
-    <%= f.text_field :contact_relation %>
+  <div class="control-group">
+    <%= f.label :country, 'País', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :country, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Teléfono" %><br />
-    <%= f.text_field :contact_phone %>
+  <div class="control-group">
+    <%= f.label :phone, 'Teléfono', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, :class => 'medium text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Grupo sanguíneo" %><br />
-    <%= f.text_field :blood_type %>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Alergias conocidas" %><br />
-    <%= f.text_field :allergies %>
-  </div>
-  <div class="field">
-    <%= f.label "Pagado" %><br />
-    <%= f.text_field :paid %>
-  </div>
-  </fieldset>
-  <fieldset>
   <h3>Tipo de Ala</h3>
-  <div class="field">
-    <%= f.label "Clase" %><br />
-    <%= f.text_field :glider_class %>
+  <div class="control-group">
+    <%= f.label :glider_class, 'Clase', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :glider_class, :class => 'number_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Fabricante" %><br />
-    <%= f.text_field :glider_manuf %>
+  <div class="control-group">
+    <%= f.label :glider_manuf, 'Marca', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :glider_manuf, :class => 'medium text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "Modelo" %><br />
-    <%= f.text_field :glider_model %>
+  <div class="control-group">
+    <%= f.label :glider_model, 'Modelo', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :glider_model, :class => 'medium text_field' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit 'Actualizar' %>
+
+  <h3>Contacto de emergencia</h3>
+  <div class="control-group">
+    <%= f.label :contact_name, 'Nombre', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contact_name, :class => 'text_field' %>
+    </div>
   </div>
-  </fieldset>
+  <div class="control-group">
+    <%= f.label :contact_relation, 'Relación', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contact_relation, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :contact_phone, 'Teléfono', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contact_phone, :class => 'medium text_field' %>
+    </div>
+  </div>
+
+
+  <h3>Datos inscripción</h3>
+
+  <div class="control-group">
+    <%= f.label :paid, 'Pagada', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :paid, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :fsdb_id, 'Dorsal FSDB', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :fsdb_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :civl_id, 'CIVL ID', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :civl_id, :class => 'medium text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :new_password, 'Contraseña', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :new_password, :class => 'medium text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Crear/Actualizar', :class => 'btn btn-primary' %>
+    |
+    <%= link_to 'Cancelar', pilots_path(:view => 'admin', :competition_id => @competition.id), :class => 'btn' %>
+  </div>
 <% end %>
-</div>

@@ -48,8 +48,8 @@ class Pilot < ActiveRecord::Base
     self.password = Digest::SHA512.hexdigest(new_password) if new_password.present?
   end
 
-  def self.find_with_password(password)
-    where(:password => Digest::SHA512.hexdigest(password)).first
+  def self.authenticate(email, password)
+    where(:email => email, :password => Digest::SHA512.hexdigest(password)).first
   end
 
   private
