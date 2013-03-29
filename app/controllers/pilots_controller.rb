@@ -97,7 +97,7 @@ class PilotsController < ApplicationController
   # POST /pilots
   # POST /pilots.xml
   def create
-    @pilot = Pilot.new(params[:pilot])
+    @pilot = Pilot.new(params[:pilot], :without_protection => true)
     @pilot.surname = params[:pilot][:surname].strip
     @pilot.competition ||= competition
     redirect_to referer_base + (@pilot.save ? '/ok' : '/ko') + ".html?competition_id=#{competition.id}"
@@ -110,7 +110,7 @@ class PilotsController < ApplicationController
   # PUT /pilots/1.xml
   def update
     respond_to do |format|
-      if @pilot.update_attributes(params[:pilot])
+      if @pilot.update_attributes(params[:pilot], :without_protection => true)
         format.html { redirect_to(@pilot,
           :view => 'admin',
           :notice => 'Pilot was successfully updated.') }
