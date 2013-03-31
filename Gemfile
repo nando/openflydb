@@ -10,9 +10,10 @@ gem 'wicked_pdf'
 gem 'mechanize'
 gem 'hpricot'
 
-#group :production do
-#  gem "wkhtmltopdf-heroku", :git => 'git://github.com/camdez/wkhtmltopdf-heroku.git'
-#end
+group :production do
+  #gem 'wkhtmltopdf-heroku', :git => 'git://github.com/camdez/wkhtmltopdf-heroku.git'
+  gem 'wkhtmltopdf-heroku', :git => 'git://github.com/bradphelan/wkhtmltopdf-heroku.git'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
