@@ -18,12 +18,13 @@ class Pilot < ActiveRecord::Base
   validates_uniqueness_of :fsdb_id, :scope => :competition_id
   validates_presence_of :competition
 
-  before_create :set_fsdb_id
+  before_create :set_previous_ids
   before_save :crypt_password
 
   attr_accessor :new_password
 
-  def set_fsdb_id
+  def set_previous_ids
+    self.civl_id ||= previous_civl_id
     self.fsdb_id ||= previous_fsdb_id || new_fsdb_id
   end
   
@@ -55,9 +56,17 @@ class Pilot < ActiveRecord::Base
   private
 
   def previous_fsdb_id
-    (Pilot.where('email like ?', "%#{self.email.strip}%").first ||
-     Pilot.where('phone like ?', "%#{self.phone.strip}%").first ||
-     Pilot.where('surname like ?', "%#{self.surname.strip}%").first).fsdb_id rescue nil
+    previous_pilot && previous_pilot.fsdb_id
+  end
+  
+  def previous_civl_id
+    previous_pilot && previous_pilot.civl_id
+  end
+
+  def previous_pilot
+    @privious_pilot ||= Pilot.where('email like ?', "%#{self.email.strip}%").first ||
+                        Pilot.where('phone like ?', "%#{self.phone.strip}%").first ||
+                        Pilot.where('surname like ?', "%#{self.surname.strip}%").first
   end
   
   def new_fsdb_id
