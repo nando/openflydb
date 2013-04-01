@@ -9,6 +9,11 @@ require 'mechanize'
 
 namespace :openflydb do
 
+  desc "Actualizar CIVL ID desde una competición en la que esté presente en todas las demás"
+  task :set_civl => :environment do
+    Pilot.where(['civl_id is not null and civl_id <> ?', '']).each{|p| Pilot.where(:email => p.email).each {|p2|p2.update_attribute :civl_id, p.civl_id}}
+  end
+
   def elems_for(pilot)
       printf "buscando #{pilot}..."
       sleep 1
