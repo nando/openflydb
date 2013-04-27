@@ -58,6 +58,7 @@ th, td {
         <ul class="nav">
           <li><%= link_to "Gestión de pilotos", pilots_path(:view => 'admin', :competition_id => @competition.id) %></li>
           <li><%= link_to "Listado de inscritos", pilots_path(:competition_id => @competition.id) %></li>
+          <li><%= link_to "Hoja de inscripcion", new_pilot_path(:competition_id => @competition.id, :format => 'pdf') %></li>
           <li><%= link_to "Registro de despegues", pilots_path(:competition_id => @competition.id, :format => 'pdf') %></li>
           <li><%= link_to "FSDB", pilots_path(:competition_id => @competition.id, :format => 'fsdb') %></li>
           <li><%= link_to "CSV", pilots_path(:competition_id => @competition.id, :format => 'csv') %></li>

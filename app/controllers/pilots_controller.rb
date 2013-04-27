@@ -83,7 +83,7 @@ class PilotsController < ApplicationController
       format.html #{ render :action => 'show.pdf.erb' } 
       format.xml  { render :xml => @pilot }
       format.pdf {
-        render :pdf => "inscripcion_open_de_pb",
+        render :pdf => I18n.transliterate("hoja de inscripción #{@competition.name}").parameterize,
                :template => 'pilots/show',
                :layout => 'layouts/application.html.erb'
       }
