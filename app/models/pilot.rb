@@ -36,6 +36,10 @@ class Pilot < ActiveRecord::Base
     TSHIRT_SIZES[tshirt_size]
   end
 
+  def live_username
+    tracker_username.present? ? tracker_username : livetrack_username
+  end
+
   def female?
     gender && gender.upcase == 'F'
   end

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Fs version="3.4" comment="Generated with OpenflyDB">
-<FsCompetition id="20120428" name="<%= @competition.name %>" location="<%= @competition.location %> from="<%= @competition.from %>" to="<%= @competition.to %>" utc_offset="+2">
+<FsCompetition id="20120428" name="<%= @competition.name %>" location="<%= @competition.location %>" from="<%= @competition.from %>" to="<%= @competition.to %>" utc_offset="+2">
     <FsScoreFormula id="GAP2011" use_distance_points="1" use_time_points="1" use_departure_points="0" use_leading_points="1" use_arrival_position_points="1" use_arrival_time_points="0" min_dist="5" nom_dist="40" nom_time="1.5" nom_goal="0.2" day_quality="0" time_points_if_not_in_goal="0.8" jump_the_gun_factor="0" use_1000_points_for_max_day_quality="0" normalize_1000_before_day_quality="0" time_validity_based_on_pilot_with_speed_rank="1" bonus_gr="0" no_pilots_in_goal_factor="1" task_stopped_factor="1" />
     <FsParticipants>
 <% @pilots.each do |pilot| -%>
@@ -19,6 +19,7 @@
           <FsCustomAttribute name="Tipo de Ala" value="<%= pilot.glider_type %>" />
           <FsCustomAttribute name="Sport" value="<%= pilot.glider_class == 0 ? '1' : '0' %>" />
           <FsCustomAttribute name="Fabricante" value="<%= pilot.glider_manuf.upcase %>" />
+          <FsCustomAttribute name="LiveUsername" value="<%= pilot.live_username %>" />
         </FsCustomAttributes>
       </FsParticipant>
 <% end -%>

@@ -43,45 +43,9 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :license, 'Licencia', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :license, :class => 'text_field medium' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :fai_license, 'Licencia FAI', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :fai_license, :class => 'medium text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :blood_type, 'Grupo sanguíneo', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :blood_type, :class => 'short text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :allergies, 'Alergias', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :allergies, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
     <%= f.label :nationality, 'Nacionalidad', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :nationality, :maxlength => 3, :class => 'short text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :tshirt_size, 'Talla camiseta', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :tshirt_size, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :club_name, 'Club', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :club_name, :class => 'medium text_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -176,6 +140,30 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :tshirt_size, 'Talla camiseta', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :tshirt_size, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :club_name, 'Club', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :club_name, :class => 'medium text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :license, 'Licencia', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :license, :class => 'text_field medium' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :fai_license, 'Licencia FAI', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fai_license, :class => 'medium text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :fsdb_id, 'Dorsal FSDB', :class => 'control-label' %>
     <div class="controls">
       <%= f.number_field :fsdb_id, :class => 'number_field' %>
@@ -187,6 +175,32 @@
       <%= f.text_field :civl_id, :class => 'medium text_field' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :blood_type, 'Grupo sanguíneo', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :blood_type, :class => 'short text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :allergies, 'Alergias', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :allergies, :class => 'text_field' %>
+    </div>
+  </div>
+  <h3>Nombres de usuario en LiveTrack24</h3>
+  <div class="control-group">
+    <%= f.label :livetrack_username, 'Personal', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :livetrack_username, :class => 'medium text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :tracker_username, 'Tracker de la organización', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tracker_username, :class => 'medium text_field' %>
+    </div>
+  </div>
+  <h3>Acceso a OpenFlyDB</h3>
   <div class="control-group">
     <%= f.label :new_password, 'Contraseña', :class => 'control-label' %>
     <div class="controls">
