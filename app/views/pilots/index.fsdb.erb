@@ -5,7 +5,7 @@
     <FsParticipants>
 <% @pilots.each do |pilot| -%>
       <FsParticipant id="<%= pilot.fsdb_id %>"
-                     name="<%= transliterate("#{pilot.name} #{pilot.surname}") %>"
+                     name="<%= I18n.transliterate("#{pilot.name} #{pilot.surname}") %>"
                      glider="<%= "#{pilot.glider_manuf.upcase} #{pilot.glider_model}" %>"
                      birthday=""
                      glider_main_colors=""
