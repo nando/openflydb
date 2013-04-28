@@ -37,7 +37,13 @@ class Pilot < ActiveRecord::Base
   end
 
   def live_username
-    tracker_username.present? ? tracker_username : livetrack_username
+    if tracker_username.present?
+      tracker_username
+    elsif livetrack_username.present?
+      livetrack_username
+    else
+      "unknown-#{competition.id}-#{id}"
+    end
   end
 
   def female?
