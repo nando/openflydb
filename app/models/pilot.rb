@@ -42,7 +42,8 @@ class Pilot < ActiveRecord::Base
     elsif livetrack_username.present?
       livetrack_username
     else
-      "unknown-#{competition.id}-#{id}"
+      #"unknown-#{competition.id}-#{id}"
+      nil
     end
   end
 
