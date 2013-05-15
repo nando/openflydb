@@ -33,8 +33,8 @@ class PilotsController < ApplicationController
         pilots = @pilots.map{|p|
           {
             :fsdb_id => p.fsdb_id,
-            :name => p.name,
-            :surname => p.surname,
+            :name => p.name.titleize,
+            :surname => p.surname.titleize,
             :brand => p.glider_manuf.upcase,
             :model => p.glider_model,
             :glider_class => p.glider_class,

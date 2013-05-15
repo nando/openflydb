@@ -5,11 +5,11 @@
     <FsParticipants>
 <% @pilots.each do |pilot| -%>
       <FsParticipant id="<%= pilot.fsdb_id %>"
-                     name="<%= I18n.transliterate("#{pilot.name} #{pilot.surname}") %>"
+                     name="<%= I18n.transliterate("#{pilot.name} #{pilot.surname}").titleize %>"
                      glider="<%= "#{pilot.glider_manuf.upcase} #{pilot.glider_model}" %>"
-                     birthday=""
+                     birthday="<%= pilot.birthdate %>"
                      glider_main_colors=""
-                     fai_licence=""
+                     fai_licence="<%= pilot.fai_license %>"
                      female="<%= pilot.female? ? '1' : '0' %>"
                      nat_code_3166_a3="<%= pilot.nationality.upcase %>"
                      sponsor=""
