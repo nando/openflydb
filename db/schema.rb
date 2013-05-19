@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427091539) do
+ActiveRecord::Schema.define(:version => 20130519120000) do
 
   create_table "competitions", :force => true do |t|
     t.string "name"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20130427091539) do
     t.integer  "fsdb_id"
     t.integer  "competition_id"
     t.date     "birthdate"
-    t.string   "zipcode",            :limit => 10
+    t.string   "zipcode",            :limit => 40
     t.string   "fai_license",        :limit => 20
     t.boolean  "admin",                             :default => false
     t.string   "password",           :limit => 128
