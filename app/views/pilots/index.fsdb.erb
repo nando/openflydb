@@ -9,7 +9,7 @@
                      glider="<%= "#{pilot.glider_manuf.upcase} #{pilot.glider_model}" %>"
                      birthday="<%= pilot.birthdate %>"
                      glider_main_colors=""
-                     fai_licence="<%= pilot.fai_license %>"
+                     fai_licence="<%= pilot.fai_license.blank? ? '' : '1' %>"
                      female="<%= pilot.female? ? '1' : '0' %>"
                      nat_code_3166_a3="<%= pilot.nationality.upcase %>"
                      sponsor=""
@@ -19,7 +19,10 @@
           <FsCustomAttribute name="Tipo de Ala" value="<%= pilot.glider_type %>" />
           <FsCustomAttribute name="Sport" value="<%= pilot.glider_class == 0 ? '1' : '0' %>" />
           <FsCustomAttribute name="Fabricante" value="<%= pilot.glider_manuf.upcase %>" />
-<% if pilot.live_username.present? -%>          
+<% if pilot.fai_license.present? -%>
+          <FsCustomAttribute name="Num. Licencia FAI" value="<%= pilot.fai_license %>" />
+<% end -%>
+<% if pilot.live_username.present? -%>
           <FsCustomAttribute name="LiveUsername" value="<%= pilot.live_username %>" />
 <% end -%>
         </FsCustomAttributes>
