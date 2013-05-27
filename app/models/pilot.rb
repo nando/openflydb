@@ -52,8 +52,8 @@ class Pilot < ActiveRecord::Base
   end
 
   def defaults
-    self.nationality = 'ESP'
-    self.gender = 'M'
+    self.nationality ||= 'ESP'
+    self.gender ||= 'M'
   end
 
   def crypt_password
