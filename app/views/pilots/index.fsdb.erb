@@ -19,6 +19,7 @@
           <FsCustomAttribute name="Tipo de Ala" value="<%= pilot.glider_type %>" />
           <FsCustomAttribute name="Sport" value="<%= pilot.glider_class == 0 ? '1' : '0' %>" />
           <FsCustomAttribute name="Fabricante" value="<%= pilot.glider_manuf.upcase %>" />
+          <FsCustomAttribute name="Region" value="<%= pilot.region %>" />
 <% if pilot.fai_license.present? -%>
           <FsCustomAttribute name="Num. Licencia FAI" value="<%= pilot.fai_license %>" />
 <% end -%>

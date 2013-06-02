@@ -40,6 +40,7 @@ class PilotsController < ApplicationController
             :glider_class => p.glider_class,
             :club => p.club_name.upcase,
             :nat => p.nationality.upcase,
+            :region => p.region,
             :paid => p.paid?
           }
         }

@@ -47,6 +47,10 @@ class Pilot < ActiveRecord::Base
     end
   end
 
+  def region
+    self.nationality == 'ESP' ? self.team : self.nationality
+  end
+
   def female?
     gender && gender.upcase == 'F'
   end
